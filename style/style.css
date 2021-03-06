@@ -1,6 +1,13 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+}
+
+html{
+    background: linear-gradient(0.25turn, #F1F1F1, #C7C7C7, #F1F1F1);
+    width: 100%;
+    height: 100%;
 }
 
 /* ---- HEADER ---- */
@@ -11,6 +18,7 @@ header{
     background-color: #2D2D2D;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 header div{
@@ -23,18 +31,116 @@ header div{
 #links{
     display: flex;
     justify-content: flex-start;
+    margin-right: 10px;
 }
 
-#links div{
+#links a{
     height: 45px;
     padding: 0 30px;
+    display: flex;
+    align-items: center;
 }
 
-#links div:hover{
+#links a:hover{
     background-color: #525252;
     cursor: pointer;
+    color: #5fa8d3;
 }
 
-#copyright{
-    padding: 0 30px;
+#title{
+    font-size: 22px;
+    margin: 0 30px;
+}
+
+/* ---- BULLE ETAT CONNEXION ---- */
+
+#bulle-etat-connexion{
+    margin: 20px auto 0;
+    width: 550px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #1CB600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bulle-deconnecte{
+    margin: 20px auto 0; 
+    height: 32px;
+}
+
+
+/* ---- IDENTIFICATION ---- */
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px auto 0;
+    width: 280px;
+    height: 300px;
+    border: 1px solid #2f323a;
+    border-radius: 8px;
+    background-color: #2D2D2D;
+    color: #FFF;
+    box-shadow: 5px 5px 8px black;
+}
+
+section h1{
+    text-decoration: underline;
+    text-align: center;
+}
+
+form{
+    margin-top: -5px;
+}
+
+.form-input{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 35px;
+}
+
+.form-input input[type="text"], input[type="password"]{
+    width: 230px;
+    border:none;
+    border-bottom: 1px solid #fff;
+    background-color: #2D2D2D;
+    color: #fff;
+    outline: none;
+    margin-top: 5px;
+    line-height: 20px;
+    font-size: 16px;
+}
+
+.form-input input[type="text"]:focus, input[type="password"]:focus{
+    border-color: #5fa8d3;
+    color: #5fa8d3;
+}
+
+.form-input input[type="text"]:focus + label, input[type="password"]:focus + label{
+    color: #5fa8d3;
+}
+
+.form-input input[type="submit"]{
+    width: 110px;
+    height: 35px;
+    margin: 0px auto 0;
+    background: none;
+    border: 1px solid #FFF;
+    border-radius: 20px;
+    color: #FFF;
+    outline: none;
+}
+
+.form-input input[type="submit"]:hover,.form-input input[type="submit"]:focus{
+    border-color: #5fa8d3;
+    color: #5fa8d3;
+}
+
+label{
+    font-size: 14px;
 }

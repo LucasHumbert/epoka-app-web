@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,29 +13,35 @@
 <body>
     
     <!---- HEADER ---->
-    <header>
-        <div id="links">
-            <div>
-                <p>Connexion</p>
+    <?php require_once("vues/header.php")   ?>
+
+    <?php if(!isset($_SESSION["numero"])){ ?>
+
+    <!---- IDENTIFICATION ---->
+    <section>
+
+        <form method="POST" action="script/connexion.php">
+
+            <h1>Identifiez-vous</h1>
+
+            <div class="form-input">
+                
+                <input type="text" name="numero" autocomplete="off" required>
+                <label for="numero">Numéro</label>
             </div>
 
-            <div>
-                <p>Validation des missions</p>
+            <div class="form-input">
+                <input type="password" name="mdp" autocomplete="off" required>
+                <label for="mdp">Mot de passe</label>
+            </div>
+            <div class="form-input">
+                <input type="submit" value="Se connecter">
             </div>
 
-            <div>
-                <p>Paiement des frais</p>
-            </div>
+        </form>
 
-            <div>
-                <p>Paramétrage</p>
-            </div>
-        </div>
+    </section>
 
-        <div id="copyright">
-            Copyright 2021 Humbert Lucas
-        </div>
-    </header>
-
+    <?php } ?>
 </body>
 </html>
