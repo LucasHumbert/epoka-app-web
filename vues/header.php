@@ -9,19 +9,19 @@
 
     <!-- LIENS CONNECTÉ -->
     <div id="links">
-        <a href="script/deconnexion.php">
+        <a href="../script/deconnexion.php">
             <p>Deconnexion</p>
         </a>
 
-        <a>
+        <a href="../vues/validation.php">
             <p>Validation des missions</p>
         </a>
 
-        <a>
+        <a href="../vues/paiement.php">
             <p>Paiement des frais</p>
         </a>
 
-        <a>
+        <a href="../vues/parametres.php">
             <p>Paramétrage</p>
         </a>
     </div>
@@ -32,21 +32,17 @@
 
     <!-- LIENS DÉCONNECTÉ -->
     <div id="links">
-        <a href="index.php">
-            <p>Connexion</p>
-        </a>
-
-        <a>
+        <div class="link">
             <p>Validation des missions</p>
-        </a>
+        </div>
 
-        <a>
+        <div class="link">
             <p>Paiement des frais</p>
-        </a>
+        </div>
 
-        <a>
+        <div class="link">
             <p>Paramétrage</p>
-        </a>
+        </div>
     </div>
 
     <?php 
@@ -54,20 +50,3 @@
     ?>
 
 </header>
-
-<?php
-    if(isset($_SESSION["numero"])){
-?>
-
-<div id="bulle-etat-connexion">
-    <p><?php echo("Bonjour ". $_SESSION["prenom"] ." ".$_SESSION["nom"]." ! Vous êtes bien connecté") ?></p>
-</div>
-
-<?php
-    } else {
-?>
-
-<div id="bulle-deconnecte">
-    <p></p>
-</div>
-<?php }?>
