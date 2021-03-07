@@ -28,6 +28,12 @@ header div{
     align-items: center;
 }
 
+#lien-accueil{
+    outline: none;
+    color: #FFF;
+    text-decoration: none;
+}
+
 #links{
     display: flex;
     justify-content: flex-start;
@@ -62,25 +68,6 @@ header div{
 #title{
     font-size: 22px;
     margin: 0 30px;
-}
-
-/* ---- BULLE ETAT CONNEXION ---- */
-
-#bulle-etat-connexion{
-    margin: 20px auto 0;
-    width: 550px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: #1CB600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#bulle-deconnecte{
-    margin: 20px auto 0; 
-    height: 32px;
 }
 
 

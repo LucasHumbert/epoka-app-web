@@ -1,0 +1,30 @@
+/* ---- BULLE ETAT CONNEXION ---- */
+
+#bulle-etat-connecte{
+    margin: 20px auto 0;
+    width: 550px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #1CB600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bulle-deconnecte{
+    margin: 20px auto 0; 
+    height: 32px;
+}
+
+#bulle-etat-non-autorise{
+    margin: 20px auto 0;
+    width: 550px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #FF0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

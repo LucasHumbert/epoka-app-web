@@ -1,6 +1,6 @@
 <header>
     <div id="title">
-        Missions Epoka
+        <a href="./accueil.php" id="lien-accueil">Missions Epoka</a>
     </div>
 
     <?php
