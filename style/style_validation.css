@@ -1,0 +1,16 @@
+h1{
+    margin: 20px 10px 0 10px;
+}
+
+table{
+    margin: 10px 10px 0 0;
+}
+
+td{
+    padding: 4px 15px;
+}
+
+#titles{
+    font-weight: bold;
+    font-size: 18px;
+}
