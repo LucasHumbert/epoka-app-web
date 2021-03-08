@@ -35,6 +35,7 @@
 
         } else {
             $numero = $_SESSION ['numero'];
+            setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']);
 
             $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
             $stmt = $pdo->prepare ("SELECT sal_nom, sal_prenom, mis_dateDebut, mis_dateFin FROM salarie, mission WHERE sal_id = mis_idSalarie AND sal_idResponsable = :numero");
@@ -43,26 +44,29 @@
 
             $answers = $stmt -> fetchAll();
 
+
+            
+
         ?>
             <!-- CONTENUE DE LA PAGE -->
             <h1>Validation des missions de vos subordonnées</h1>
             <table>
                 <tr id="titles">
-                    <td>Nom du salarié</td>
-                    <td>Prénom du salarié</td>
-                    <td>Début de la mission</td>
-                    <td>Fin de la mission</td>
-                    <td>Lieu de la mission</td>
-                    <td>Validation</td>
+                    <th>Nom du salarié</th>
+                    <th>Prénom du salarié</th>
+                    <th>Début de la mission</th>
+                    <th>Fin de la mission</th>
+                    <th>Lieu de la mission</th>
+                    <th>Validation</th>
                 </tr>
 
                 <?php foreach($answers as $answer){ ?>
-
+                    
                 <tr>
                     <td><?php echo($answer['sal_nom']) ?></td>
                     <td><?php echo($answer['sal_prenom']) ?></td>
-                    <td><?php echo($answer['mis_dateDebut']) ?></td>
-                    <td><?php echo($answer['mis_dateFin']) ?></td>
+                    <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateDebut']))) ?></td>
+                    <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
                     <td></td>
                     <td></td>
                 </tr>
