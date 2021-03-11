@@ -105,17 +105,10 @@
             <h2>Distances entre villes déjà saisies</h2>
 
             <?php
-                //requête pour la ville de départ
                 $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
-                $stmt = $pdo->prepare ("SELECT vil_nom FROM distance, ville WHERE vil_id = dis_idVilleDepart");
+                $stmt = $pdo->prepare ("SELECT dis_km, a.vil_nom as ville1, b.vil_nom as ville2 FROM distance d JOIN ville a ON d.dis_idVilleDepart =a.vil_id JOIN ville b ON d.dis_idVilleArrivee = b.vil_id ORDER BY dis_km DESC");
                 $stmt->execute ();
-                $villeDeparts = $stmt -> fetchAll();
-
-                //requête pour la ville d'arrivé et les Km
-                $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
-                $stmt = $pdo->prepare ("SELECT vil_nom, dis_km FROM distance, ville WHERE vil_id = dis_idVilleArrivee");
-                $stmt->execute ();
-                $villeArrivees = $stmt -> fetchAll();
+                $villes = $stmt -> fetchAll();
             ?>
 
             <table>
@@ -125,13 +118,16 @@
                     <th>Km</th>
                 </tr>
                 
+                <?php foreach($villes as $ville){ ?>
                  
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
+                    <td><?php echo($ville['ville1']) ?></td>
+                    <td><?php echo($ville['ville2']) ?></td>
+                    <td><?php echo($ville['dis_km']) ?></td>
                 </tr>
+
+                <?php } ?>
+
             </table>
 
         <?php 
