@@ -19,12 +19,3 @@ table, tr, td, th{
     font-weight: bold;
     font-size: 18px;
 }
-
-.pValidee{
-    float: left;
-}
-
-.pRemboursee{
-    float: right;
-    margin: 0 0 0 8px;
-}
