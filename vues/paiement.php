@@ -41,10 +41,7 @@
             $stmt->execute ();
 
             $answers = $stmt -> fetchAll();
-
-
             
-
         ?>
             <!-- CONTENUE DE LA PAGE -->
             <h1>Paiement des missions</h1>
