@@ -69,7 +69,7 @@
 
             <?php
                 $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
-                $stmt = $pdo->prepare (" SELECT * FROM ville WHERE vil_categorie < 3 ORDER BY vil_categorie, vil_nom");
+                $stmt = $pdo->prepare ("SELECT * FROM ville WHERE vil_categorie < 3 ORDER BY vil_categorie, vil_nom");
                 $stmt->execute ();
     
                 $villes = $stmt -> fetchAll();
@@ -78,21 +78,21 @@
             <h2>Distance entre villes</h2>
             <form action="../script/ajoutDistance.php" method="GET" id="distanceEntreVille">
                 <label for="ville1">De :</label>
-                <select id="ville1" name="ville1">
+                <select id="ville1" name="ville1" required>
                     <?php foreach($villes as $ville){ ?>
                         <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
                     <?php } ?>
                 </select>
 
                 <label for="ville2">à :</label>
-                <select id="ville2" name="ville2">
+                <select id="ville2" name="ville2" required>
                     <?php foreach($villes as $ville){ ?>
                         <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
                     <?php } ?>
                 </select>
 
                 <label for="distance">Distance en km :</label>
-                <input type="text" name="distance">
+                <input type="text" name="distance" required>
 
                 <br /><br />
 
@@ -105,11 +105,17 @@
             <h2>Distances entre villes déjà saisies</h2>
 
             <?php
+                //requête pour la ville de départ
                 $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
-                $stmt = $pdo->prepare ("SELECT * FROM distance");
+                $stmt = $pdo->prepare ("SELECT vil_nom FROM distance, ville WHERE vil_id = dis_idVilleDepart");
                 $stmt->execute ();
-    
-                $distances = $stmt -> fetchAll();
+                $villeDeparts = $stmt -> fetchAll();
+
+                //requête pour la ville d'arrivé et les Km
+                $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
+                $stmt = $pdo->prepare ("SELECT vil_nom, dis_km FROM distance, ville WHERE vil_id = dis_idVilleArrivee");
+                $stmt->execute ();
+                $villeArrivees = $stmt -> fetchAll();
             ?>
 
             <table>
@@ -119,11 +125,13 @@
                     <th>Km</th>
                 </tr>
                 
-                 <?php foreach($distances as $distance){ ?>
+                 
                 <tr>
-                   
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
                 </tr>
-                <?php } ?>
             </table>
 
         <?php 
