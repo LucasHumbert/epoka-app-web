@@ -64,7 +64,7 @@
                     <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateDebut']))) ?></td>
                     <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
                     <td><?php echo($answer['vil_nom']." (".$answer['vil_cp'].")") ?></td>
-                    <td><?php ?></td>
+                    <td><?php echo(calculMontant($answer['mis_id'], $answer['sal_idAgence'])) ?></td>
                     <td>
                         <?php if($answer['mis_paiement'] == 0){ ?>
 
@@ -92,8 +92,27 @@
         <?php
             }
 
-            function calculMontant(id){
-                return("oui");
+            function calculMontant($idMission, $salarieIdAgence){
+                
+                //récupération de la ville de l'agence
+                $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
+                $stmt = $pdo->prepare ("SELECT age_ville FROM agence WHERE age_id = :idAgence");
+                $stmt->bindParam ("idAgence", $salarieIdAgence,PDO::PARAM_INT);
+                $stmt->execute ();
+                $stmtVille = $stmt -> fetch();
+
+                $ville1 = $stmtVille['age_ville'];
+
+                //récupération de la ville de l'agence
+                $stmt = $pdo->prepare ("SELECT mis_idDestination FROM mission WHERE mis_id = :idMission");
+                $stmt->bindParam ("idMission", $idMission,PDO::PARAM_INT);
+                $stmt->execute ();
+                $stmtVille = $stmt -> fetch();
+
+                $ville2 = $stmtVille['mis_idDestination'];
+
+
+                return($ville1." ".$ville2);
             }
 
         ?>
