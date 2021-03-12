@@ -64,26 +64,7 @@
                     <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateDebut']))) ?></td>
                     <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
                     <td><?php echo($answer['vil_nom']." (".$answer['vil_cp'].")") ?></td>
-                    <td><?php 
-                    
-                        //calcul montant FAIRE UNE FONCTION
-                        $mont = $pdo->prepare ("SELECT * FROM mission WHERE mis_id = :id");
-                        $mont->bindParam ("id", $answer['mis_id'],PDO::PARAM_STR);
-                        $mont->execute ();
-
-                        if ($ligne = $mont->fetch()){
-                            if ($ligne['mis_paiement'] == 0){
-                                if ($ligne['mis_montant'] == null){
-                                    
-                                    
-
-                                } else {
-                                    echo($ligne['mis_montant']."€");
-                                }
-                            }
-                        }
-
-                    ?></td>
+                    <td><?php ?></td>
                     <td>
                         <?php if($answer['mis_paiement'] == 0){ ?>
 
@@ -110,6 +91,11 @@
 
         <?php
             }
+
+            function calculMontant(id){
+                return("oui");
+            }
+
         ?>
 
 </body>
