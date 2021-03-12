@@ -103,7 +103,7 @@
 
                 $ville1 = $stmtVille['age_ville'];
 
-                //récupération de la ville de l'agence
+                //récupération de la ville de destination
                 $stmt = $pdo->prepare ("SELECT mis_idDestination FROM mission WHERE mis_id = :idMission");
                 $stmt->bindParam ("idMission", $idMission,PDO::PARAM_INT);
                 $stmt->execute ();
@@ -111,8 +111,22 @@
 
                 $ville2 = $stmtVille['mis_idDestination'];
 
+                if ($ville1 > $ville2){
+                    $temp = $ville2;
+                    $ville2 = $ville1;
+                    $ville1 = $temp;
+                }
 
-                return($ville1." ".$ville2);
+                //récupération de la distance entre les deux villes
+                $stmt = $pdo->prepare ("SELECT dis_km FROM distance WHERE dis_idVilleDepart = :ville1 AND dis_idVilleArrivee = :ville2");
+                $stmt->bindParam ("ville1", $ville1,PDO::PARAM_INT);
+                $stmt->bindParam ("ville2", $ville2,PDO::PARAM_INT);
+                $stmt->execute ();
+                $stmtKm = $stmt -> fetch();
+
+                $distance = $stmtKm['dis_km'];
+
+                return($distance);
             }
 
         ?>
