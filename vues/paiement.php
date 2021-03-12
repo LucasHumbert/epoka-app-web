@@ -56,7 +56,11 @@
                     <th>Paiement</th>
                 </tr>
 
-                <?php foreach($answers as $answer){ ?>
+                <?php 
+                    foreach($answers as $answer){ 
+                        $montantMission = calculMontant($answer['mis_id'], $answer['sal_idAgence'])
+                ?>
+                
                     
                 <tr>
                     <td><?php echo($answer['sal_nom']) ?></td>
@@ -64,13 +68,27 @@
                     <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateDebut']))) ?></td>
                     <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
                     <td><?php echo($answer['vil_nom']." (".$answer['vil_cp'].")") ?></td>
-                    <td><?php echo(calculMontant($answer['mis_id'], $answer['sal_idAgence'])) ?></td>
+                    <td><center><?php
+
+                        $stmt = $pdo->prepare ("SELECT mis_id, mis_montant FROM mission WHERE mis_id = :idMission AND mis_montant IS NOT NULL");
+                        $stmt->bindParam ("idMission", $answer['mis_id'],PDO::PARAM_STR);
+                        $stmt->execute ();
+
+                        if ($ligne = $stmt -> fetch()){
+                            echo(number_format($ligne['mis_montant'], 2, '.', '')."€");
+                        } else {
+                            echo($montantMission);
+                        }
+
+                    ?></center></td>
                     <td>
                         <?php if($answer['mis_paiement'] == 0){ ?>
 
                         <form action="../script/updateMissionPaiement.php" method="GET">
 
                             <input type="hidden" name="id" value="<?php echo($answer['mis_id']) ?>">
+
+                            <input type="hidden" name="montant" value="<?php echo($montantMission) ?>">
 
                             <input type="submit" value="Rembourser">
 
@@ -96,25 +114,31 @@
                 
                 //récupération de la ville de l'agence
                 $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
-                $stmt = $pdo->prepare ("SELECT age_ville FROM agence WHERE age_id = :idAgence");
+                $stmt = $pdo->prepare ("SELECT age_ville, vil_nom FROM agence, ville WHERE age_ville = vil_id AND age_id = :idAgence");
                 $stmt->bindParam ("idAgence", $salarieIdAgence,PDO::PARAM_INT);
                 $stmt->execute ();
                 $stmtVille = $stmt -> fetch();
 
                 $ville1 = $stmtVille['age_ville'];
+                $nomVille1 = $stmtVille['vil_nom'];
 
                 //récupération de la ville de destination
-                $stmt = $pdo->prepare ("SELECT mis_idDestination FROM mission WHERE mis_id = :idMission");
+                $stmt = $pdo->prepare ("SELECT mis_idDestination, vil_nom FROM mission, ville WHERE mis_idDestination = vil_id AND mis_id = :idMission");
                 $stmt->bindParam ("idMission", $idMission,PDO::PARAM_INT);
                 $stmt->execute ();
                 $stmtVille = $stmt -> fetch();
 
                 $ville2 = $stmtVille['mis_idDestination'];
+                $nomVille2 = $stmtVille['vil_nom'];
 
                 if ($ville1 > $ville2){
                     $temp = $ville2;
                     $ville2 = $ville1;
                     $ville1 = $temp;
+
+                    $temp = $nomVille2;
+                    $nomVille2 = $nomVille1;
+                    $nomVille1 = $temp; 
                 }
 
                 //récupération de la distance entre les deux villes
@@ -126,7 +150,36 @@
 
                 $distance = $stmtKm['dis_km'];
 
-                return($distance);
+                if (!isset($distance)){
+                    return("Distance entre $nomVille1 et <br />$nomVille2 non renseigné");
+                }
+             
+                
+
+                //nombre de jours de la mission
+                $stmt = $pdo->prepare ("SELECT DATEDIFF(mis_dateFin, mis_dateDebut) as dateDiff FROM mission WHERE mis_id = :idMission");
+                $stmt->bindParam ("idMission", $idMission,PDO::PARAM_INT);
+                $stmt->execute ();
+                $stmtJour = $stmt -> fetch();
+
+                $nbJours = $stmtJour['dateDiff'];
+
+
+
+                //récupération des paramètres
+                $stmt = $pdo->prepare ("SELECT * FROM param");
+                $stmt->execute ();
+                $stmtParam = $stmt -> fetch();
+
+                $prixKm = $stmtParam['prixKm'];
+                $prixJournee = $stmtParam['prixJournee'];
+
+
+
+                //calcul
+                $montant = ($distance * $prixKm) + ($nbJours * $prixJournee);
+
+                return(number_format($montant, 2, '.', '')."€");
             }
 
         ?>

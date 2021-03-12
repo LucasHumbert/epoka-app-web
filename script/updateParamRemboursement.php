@@ -9,7 +9,7 @@
     <section id="contenu">
         <p>Modifications effectuées</p>
         <span class="loader loader-quart"></span>
-        <p>Redirection dans <span id="decompte">3</span> secondes</p>
+        <p>Redirection dans <span id="decompte">2</span> secondes</p>
     </section>
 
     <?php
@@ -26,14 +26,14 @@
 
     <script type="text/javascript">
             function decompte() {
-                let compteur = 2;
+                let compteur = 1;
                 let spanCompteur = document.getElementById('decompte');
 
                 let timer = setInterval(function(){
                     console.log(compteur);
                     spanCompteur.innerHTML = compteur;
                     compteur--;
-                    if (compteur === 1){
+                    if (compteur === 0){
                         setTimeout(function(){
                             clearInterval(timer);
                             document.location.href="../vues/parametres.php";
