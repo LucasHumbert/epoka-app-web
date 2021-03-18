@@ -13,15 +13,10 @@
         $ville2 = $_GET["ville2"];
         $distance = $_GET["distance"];
 
-        if($ville1 == $ville2){
-            die("<center>Veuillez sélectionner deux villes différentes<br />
-            <a href='javascript:history.back()' color='#5fa8d3';>Page précédente</a> </center>");
-        } else {
-            if($ville1 > $ville2){
-                $temp = $ville2;
-                $ville2 = $ville1;
-                $ville1 = $temp;
-            }
+        if($ville1 > $ville2){
+            $temp = $ville2;
+            $ville2 = $ville1;
+            $ville1 = $temp;
         }
 
         $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");

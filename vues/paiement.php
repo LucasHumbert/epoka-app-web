@@ -36,8 +36,7 @@
             setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']);
 
             $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
-            $stmt = $pdo->prepare ("SELECT * FROM salarie, mission, ville WHERE sal_id = mis_idSalarie AND sal_idResponsable = :numero AND mis_idDestination = vil_id AND mis_validation = 1");
-            $stmt->bindParam ("numero", $numero,PDO::PARAM_STR);
+            $stmt = $pdo->prepare ("SELECT * FROM salarie, mission, ville WHERE sal_id = mis_idSalarie AND mis_idDestination = vil_id AND mis_validation = 1");
             $stmt->execute ();
 
             $answers = $stmt -> fetchAll();
