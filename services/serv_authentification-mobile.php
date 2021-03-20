@@ -13,10 +13,12 @@
 
     if ($ligne = $stmt->fetch()){
         
-        echo($ligne["sal_nom"]." ".$ligne["sal_prenom"]);
+        $output[] = $ligne;
         
     } else {
-        die("#Erreur connexion");
+        $output[] = array("erreur" => "Erreur connexion");
     }
+
+    echo(json_encode($output));
 
 ?>
