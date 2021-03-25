@@ -3,8 +3,8 @@
         $montant = floatval($_GET["montant"]);
 
         if($montant == 0.00){
-        die("<div><center>Problème de paramètrage<br />
-        <a href='javascript:history.back()' color='#5fa8d3';>Page précédente</a> </center></div>");
+                die("<div><center>Problème de paramètrage<br />
+                <a href='javascript:history.back()' color='#5fa8d3';>Page précédente</a> </center></div>");
         }
 
         $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
