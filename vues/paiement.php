@@ -12,9 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/style_header.css">
-    <link rel="stylesheet" href="../style/style-bulle-etat.css">
-    <link rel="stylesheet" href="../style/style_paiement.css">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Epoka - Paiement</title>
 </head>
 <body>
@@ -43,68 +41,70 @@
             
         ?>
             <!-- CONTENUE DE LA PAGE -->
-            <h1>Paiement des missions</h1>
-            <table>
-                <tr id="titles">
-                    <th>Nom du salarié</th>
-                    <th>Prénom du salarié</th>
-                    <th>Début de la mission</th>
-                    <th>Fin de la mission</th>
-                    <th>Lieu de la mission</th>
-                    <th>Montant</th>
-                    <th>Paiement</th>
-                </tr>
+            <section id="sect_tableau">
+                <h1>Paiement des missions</h1>
+                <table>
+                    <tr id="titles">
+                        <th>Nom du salarié</th>
+                        <th>Prénom du salarié</th>
+                        <th>Début de la mission</th>
+                        <th>Fin de la mission</th>
+                        <th>Lieu de la mission</th>
+                        <th>Montant</th>
+                        <th>Paiement</th>
+                    </tr>
 
-                <?php 
-                    foreach($answers as $answer){ 
-                        $montantMission = calculMontant($answer['mis_id'], $answer['sal_idAgence']);
-                ?>
-                
+                    <?php 
+                        foreach($answers as $answer){ 
+                            $montantMission = calculMontant($answer['mis_id'], $answer['sal_idAgence']);
+                    ?>
                     
-                <tr>
-                    <td><?php echo($answer['sal_nom']) ?></td>
-                    <td><?php echo($answer['sal_prenom']) ?></td>
-                    <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateDebut']))) ?></td>
-                    <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
-                    <td><?php echo($answer['vil_nom']." (".$answer['vil_cp'].")") ?></td>
-                    <td><center><?php
+                        
+                    <tr>
+                        <td><?php echo($answer['sal_nom']) ?></td>
+                        <td><?php echo($answer['sal_prenom']) ?></td>
+                        <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateDebut']))) ?></td>
+                        <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
+                        <td><?php echo($answer['vil_nom']." (".$answer['vil_cp'].")") ?></td>
+                        <td><center><?php
 
-                        $stmt = $pdo->prepare ("SELECT mis_id, mis_montant FROM mission WHERE mis_id = :idMission AND mis_montant IS NOT NULL");
-                        $stmt->bindParam ("idMission", $answer['mis_id'],PDO::PARAM_STR);
-                        $stmt->execute ();
+                            $stmt = $pdo->prepare ("SELECT mis_id, mis_montant FROM mission WHERE mis_id = :idMission AND mis_montant IS NOT NULL");
+                            $stmt->bindParam ("idMission", $answer['mis_id'],PDO::PARAM_STR);
+                            $stmt->execute ();
 
-                        if ($ligne = $stmt -> fetch()){
-                            echo(number_format($ligne['mis_montant'], 2, '.', '')."€");
-                        } else {
-                            echo($montantMission);
-                        }
+                            if ($ligne = $stmt -> fetch()){
+                                echo(number_format($ligne['mis_montant'], 2, '.', '')."€");
+                            } else {
+                                echo($montantMission);
+                            }
 
-                    ?></center></td>
-                    <td>
-                        <?php if($answer['mis_paiement'] == 0){ ?>
+                        ?></center></td>
+                        <td>
+                            <?php if($answer['mis_paiement'] == 0){ ?>
 
-                        <form action="../script/updateMissionPaiement.php" method="GET">
+                            <form action="../script/updateMissionPaiement.php" method="GET">
 
-                            <input type="hidden" name="id" value="<?php echo($answer['mis_id']) ?>">
+                                <input type="hidden" name="id" value="<?php echo($answer['mis_id']) ?>">
 
-                            <input type="hidden" name="montant" value="<?php echo($montantMission) ?>">
+                                <input type="hidden" name="montant" value="<?php echo($montantMission) ?>">
 
-                            <input type="submit" value="Rembourser">
+                                <input type="submit" value="Rembourser">
 
-                        </form>
+                            </form>
 
-                        <?php } else { ?>
+                            <?php } else { ?>
 
-                            <p>Remboursée</p>
+                                <p>Remboursée</p>
 
-                        <?php } ?>
+                            <?php } ?>
 
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
 
-                <?php } ?>
-            
-            </table>
+                    <?php } ?>
+                
+                </table>
+            </section>
 
         <?php
             }

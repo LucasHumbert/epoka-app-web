@@ -13,9 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/style_header.css">
-    <link rel="stylesheet" href="../style/style-bulle-etat.css">
-    <link rel="stylesheet" href="../style/style_validation.css">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Epoka - Validation</title>
 </head>
 <body>
@@ -49,55 +47,57 @@
 
         ?>
             <!-- CONTENUE DE LA PAGE -->
-            <h1>Validation des missions de vos subordonnées</h1>
-            <table>
-                <tr id="titles">
-                    <th>Nom du salarié</th>
-                    <th>Prénom du salarié</th>
-                    <th>Début de la mission</th>
-                    <th>Fin de la mission</th>
-                    <th>Lieu de la mission</th>
-                    <th>Validation</th>
-                </tr>
+            <section id="sect_tableau">
+                <h1>Validation des missions de vos subordonnées</h1>
+                <table>
+                    <tr id="titles">
+                        <th>Nom du salarié</th>
+                        <th>Prénom du salarié</th>
+                        <th>Début de la mission</th>
+                        <th>Fin de la mission</th>
+                        <th>Lieu de la mission</th>
+                        <th>Validation</th>
+                    </tr>
 
-                <?php foreach($answers as $answer){ ?>
-                    
-                <tr>
-                    <td><?php echo($answer['sal_nom']) ?></td>
-                    <td><?php echo($answer['sal_prenom']) ?></td>
-                    <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateDebut']))) ?></td>
-                    <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
-                    <td><?php echo($answer['vil_nom']." (".$answer['vil_cp'].")") ?></td>
-                    <td>
-                        <?php if($answer['mis_validation'] == 0){ ?>
+                    <?php foreach($answers as $answer){ ?>
+                        
+                    <tr>
+                        <td><?php echo($answer['sal_nom']) ?></td>
+                        <td><?php echo($answer['sal_prenom']) ?></td>
+                        <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateDebut']))) ?></td>
+                        <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
+                        <td><?php echo($answer['vil_nom']." (".$answer['vil_cp'].")") ?></td>
+                        <td>
+                            <?php if($answer['mis_validation'] == 0){ ?>
 
-                        <form action="../script/updateMissionValidation.php" method="GET">
+                            <form action="../script/updateMissionValidation.php" method="GET">
 
-                            <input type="hidden" name="id" value="<?php echo($answer['mis_id']) ?>">
+                                <input type="hidden" name="id" value="<?php echo($answer['mis_id']) ?>">
 
-                            <input type="submit" value="Valider">
+                                <input type="submit" value="Valider">
 
-                        </form>
+                            </form>
 
-                        <?php } else { ?>
+                            <?php } else { ?>
 
-                            <p class="pValidee">Validée</p>
+                                <p class="pValidee">Validée</p>
 
-                        <?php 
-                            } 
-                            
-                            if($answer['mis_paiement'] == 1){
-                        ?>
+                            <?php 
+                                } 
+                                
+                                if($answer['mis_paiement'] == 1){
+                            ?>
 
-                        <p class="pRemboursee">Remboursée</p>
+                            <p class="pRemboursee">Remboursée</p>
 
-                        <?php } ?>
-                    </td>
-                </tr>
+                            <?php } ?>
+                        </td>
+                    </tr>
 
-                <?php } ?>
-            
-            </table>
+                    <?php } ?>
+                
+                </table>
+            </section>
 
         <?php
             }

@@ -7,9 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/style_header.css">
-    <link rel="stylesheet" href="../style/style_identification.css">
-    <link rel="stylesheet" href="../style/style-bulle-etat.css">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Epoka - Accueil</title>
 </head>
 <body>
@@ -39,7 +37,7 @@
     <?php if(!isset($_SESSION["numero"])){ ?>
 
     <!---- IDENTIFICATION ---->
-    <section>
+    <section id="sec_identification">
 
         <form method="POST" action="../script/connexion.php">
 

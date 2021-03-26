@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Ajout des distances</title>
-    <link rel="stylesheet" href="../style/style_chargement.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body onload="decompte()">
 

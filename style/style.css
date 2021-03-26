@@ -1,0 +1,408 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+html {
+  background: -webkit-gradient(linear, left top, right top, from(#F1F1F1), color-stop(#C7C7C7), to(#F1F1F1));
+  background: linear-gradient(0.25turn, #F1F1F1, #C7C7C7, #F1F1F1);
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  background-color: #2D2D2D;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow: hidden;
+}
+
+header div {
+  color: #fff;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#lien-accueil {
+  outline: none;
+  color: #FFF;
+  text-decoration: none;
+}
+
+#links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-right: 10px;
+}
+
+#links a {
+  height: 45px;
+  padding: 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFF;
+  text-decoration: none;
+}
+
+#links a:hover {
+  background-color: #525252;
+  cursor: pointer;
+  color: #5fa8d3;
+}
+
+.link {
+  cursor: default;
+  height: 45px;
+  padding: 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #787878;
+}
+
+#title {
+  font-size: 22px;
+  margin: 0 30px;
+}
+
+/* ---- IDENTIFICATION ---- */
+#sec_identification {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 150px auto 0;
+  width: 280px;
+  height: 300px;
+  border: 1px solid #2f323a;
+  border-radius: 8px;
+  background-color: #2D2D2D;
+  color: #FFF;
+  -webkit-box-shadow: 5px 5px 8px black;
+          box-shadow: 5px 5px 8px black;
+}
+
+#sec_identification h1 {
+  text-decoration: underline;
+  text-align: center;
+}
+
+#sec_identification form {
+  margin-top: -5px;
+}
+
+.form-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  margin-top: 35px;
+}
+
+.form-input input[type="text"], .form-input input[type="password"] {
+  width: 230px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: #2D2D2D;
+  color: #fff;
+  outline: none;
+  margin-top: 5px;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+.form-input input[type="text"]:focus, .form-input input[type="password"]:focus {
+  border-color: #5fa8d3;
+  color: #5fa8d3;
+}
+
+.form-input input[type="text"]:focus + label, .form-input input[type="password"]:focus + label {
+  color: #5fa8d3;
+}
+
+.form-input input[type="submit"] {
+  width: 110px;
+  height: 35px;
+  margin: 0px auto 0;
+  background: none;
+  border: 1px solid #FFF;
+  border-radius: 20px;
+  color: #FFF;
+  outline: none;
+  cursor: pointer;
+}
+
+.form-input input[type="submit"]:hover, .form-input input[type="submit"]:focus {
+  border-color: #5fa8d3;
+  color: #5fa8d3;
+}
+
+.form-input label {
+  font-size: 14px;
+}
+
+#bulle-etat-connecte {
+  margin: 20px auto 0;
+  width: 550px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #1CB600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#bulle-deconnecte {
+  margin: 20px auto 0;
+  height: 32px;
+}
+
+#bulle-etat-non-autorise {
+  margin: 20px auto 0;
+  width: 550px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #FF0000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#contenu {
+  width: 350px;
+  margin: 50px auto 0;
+  text-align: center;
+}
+
+#contenu #decompte {
+  font-size: 20px;
+}
+
+#contenu p {
+  font-size: 24px;
+}
+
+#contenu .loader {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+#contenu .loader-quart {
+  border-radius: 25px;
+  border: 6px solid #2D2D2D;
+}
+
+#contenu .loader-quart::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 6px solid transparent;
+  border-top-color: #FFF;
+  border-radius: 50px;
+  -webkit-animation: spin 1s linear 0s infinite;
+          animation: spin 1s linear 0s infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+#sect_tableau h1 {
+  margin: 20px 10px 0 10px;
+}
+
+#sect_tableau table {
+  margin: 10px 10px 0 0;
+}
+
+#sect_tableau td, #sect_tableau th {
+  padding: 4px 25px 4px 15px;
+}
+
+#sect_tableau table, #sect_tableau tr, #sect_tableau td, #sect_tableau th {
+  border-bottom: 1px solid #000;
+  border-collapse: collapse;
+}
+
+#sect_tableau #titles {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#sect_tableau .pValidee {
+  float: left;
+}
+
+#sect_tableau .pRemboursee {
+  float: right;
+  margin: 0 0 0 8px;
+}
+
+#sect_param h1 {
+  margin: 20px 10px 0 10px;
+}
+
+#sect_param h2 {
+  margin: 15px 10px 0 10px;
+}
+
+#sect_param #form_remboursement {
+  margin: 5px 10px 0 12px;
+}
+
+#sect_param #distanceEntreVille {
+  margin: 10px 10px 0 12px;
+}
+
+#sect_param table {
+  margin: 10px 10px 0 0;
+}
+
+#sect_param td, #sect_param th {
+  padding: 4px 25px 4px 15px;
+}
+
+#sect_param table, #sect_param tr, #sect_param td, #sect_param th {
+  border-bottom: 1px solid #000;
+  border-collapse: collapse;
+}
+
+#sect_error_not_connected {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: sans-serif;
+}
+
+#sect_error_not_connected div {
+  width: 500px;
+  height: 300px;
+  background-color: #FFF;
+  border: 2px solid #FF0000;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#sect_error_not_connected div h1 {
+  margin: 0;
+  color: #FF0000;
+  font-size: 35px;
+}
+
+#sect_error_not_connected div p {
+  margin: 0 10px;
+  font-size: 23px;
+  text-align: center;
+}
+
+#sect_error_not_connected div button {
+  width: 110px;
+  height: 35px;
+  margin: 0px auto 0;
+  background: none;
+  border: 1px solid #000;
+  border-radius: 20px;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+}
+
+#sect_error_not_connected div button:hover, #sect_error_not_connected div button:focus {
+  border-color: #FF0000;
+  color: #FF0000;
+}
+/*# sourceMappingURL=style.css.map */

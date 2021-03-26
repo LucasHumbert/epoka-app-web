@@ -1,0 +1,32 @@
+#sect_tableau{
+    h1{
+        margin: 20px 10px 0 10px;
+    }
+
+    table{
+        margin: 10px 10px 0 0;
+    }
+    
+    td, th{
+        padding: 4px 25px 4px 15px;
+    }
+    
+    table, tr, td, th{
+        border-bottom: 1px solid #000;
+        border-collapse: collapse;
+    }
+    
+    #titles{
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .pValidee{
+        float: left;
+    }
+    
+    .pRemboursee{
+        float: right;
+        margin: 0 0 0 8px;
+    }
+}
