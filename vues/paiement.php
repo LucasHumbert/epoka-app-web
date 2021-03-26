@@ -57,7 +57,7 @@
 
                 <?php 
                     foreach($answers as $answer){ 
-                        $montantMission = calculMontant($answer['mis_id'], $answer['sal_idAgence'])
+                        $montantMission = calculMontant($answer['mis_id'], $answer['sal_idAgence']);
                 ?>
                 
                     
@@ -137,7 +137,7 @@
 
                     $temp = $nomVille2;
                     $nomVille2 = $nomVille1;
-                    $nomVille1 = $temp; 
+                    $nomVille1 = $temp;
                 }
 
                 //récupération de la distance entre les deux villes
