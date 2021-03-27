@@ -40,6 +40,46 @@ header div {
   margin: 0 30px;
 }
 
+#lien-accueil svg {
+  -webkit-animation: opacity 2s ease;
+          animation: opacity 2s ease;
+}
+
+#lien-accueil svg:hover #E {
+  -webkit-animation: basHautBasTitre 1s ease;
+          animation: basHautBasTitre 1s ease;
+  -webkit-animation-delay: calc(var(--order) * 100ms);
+          animation-delay: calc(var(--order) * 100ms);
+}
+
+#lien-accueil svg:hover #P {
+  -webkit-animation: basHautBasTitre 1s ease;
+          animation: basHautBasTitre 1s ease;
+  -webkit-animation-delay: calc(var(--order) * 100ms);
+          animation-delay: calc(var(--order) * 100ms);
+}
+
+#lien-accueil svg:hover #O {
+  -webkit-animation: basHautBasTitre 1s ease;
+          animation: basHautBasTitre 1s ease;
+  -webkit-animation-delay: calc(var(--order) * 100ms);
+          animation-delay: calc(var(--order) * 100ms);
+}
+
+#lien-accueil svg:hover #K {
+  -webkit-animation: basHautBasTitre 1s ease;
+          animation: basHautBasTitre 1s ease;
+  -webkit-animation-delay: calc(var(--order) * 100ms);
+          animation-delay: calc(var(--order) * 100ms);
+}
+
+#lien-accueil svg:hover #A {
+  -webkit-animation: basHautBasTitre 1s ease;
+          animation: basHautBasTitre 1s ease;
+  -webkit-animation-delay: calc(var(--order) * 100ms);
+          animation-delay: calc(var(--order) * 100ms);
+}
+
 #links {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,57 +122,7 @@ header div {
   color: #787878;
 }
 
-svg {
-  -webkit-animation: opacity 2s ease;
-          animation: opacity 2s ease;
-}
-
-svg:hover #E {
-  -webkit-animation: basHautBas 1s ease;
-          animation: basHautBas 1s ease;
-  -webkit-animation-delay: calc(var(--order) * 100ms);
-          animation-delay: calc(var(--order) * 100ms);
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-}
-
-svg:hover #P {
-  -webkit-animation: basHautBas 1s ease;
-          animation: basHautBas 1s ease;
-  -webkit-animation-delay: calc(var(--order) * 100ms);
-          animation-delay: calc(var(--order) * 100ms);
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-}
-
-svg:hover #O {
-  -webkit-animation: basHautBas 1s ease;
-          animation: basHautBas 1s ease;
-  -webkit-animation-delay: calc(var(--order) * 100ms);
-          animation-delay: calc(var(--order) * 100ms);
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-}
-
-svg:hover #K {
-  -webkit-animation: basHautBas 1s ease;
-          animation: basHautBas 1s ease;
-  -webkit-animation-delay: calc(var(--order) * 100ms);
-          animation-delay: calc(var(--order) * 100ms);
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-}
-
-svg:hover #A {
-  -webkit-animation: basHautBas 1s ease;
-          animation: basHautBas 1s ease;
-  -webkit-animation-delay: calc(var(--order) * 100ms);
-          animation-delay: calc(var(--order) * 100ms);
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-}
-
-@-webkit-keyframes basHautBas {
+@-webkit-keyframes basHautBasTitre {
   0% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -151,7 +141,7 @@ svg:hover #A {
   }
 }
 
-@keyframes basHautBas {
+@keyframes basHautBasTitre {
   0% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -255,21 +245,63 @@ svg:hover #A {
   color: #5fa8d3;
 }
 
-.form-input input[type="submit"] {
-  width: 110px;
+.form-input button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 130px;
   height: 35px;
   margin: 0px auto 0;
   background: none;
   border: 1px solid #FFF;
   border-radius: 20px;
+  cursor: pointer;
   color: #FFF;
   outline: none;
-  cursor: pointer;
 }
 
-.form-input input[type="submit"]:hover, .form-input input[type="submit"]:focus {
+.form-input button svg {
+  margin-left: 10px;
+}
+
+.form-input button #dark1, .form-input button #dark2, .form-input button #light1 {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.form-input button #dark2 {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.form-input button:hover, .form-input button:focus {
   border-color: #5fa8d3;
   color: #5fa8d3;
+}
+
+.form-input button:hover #light1, .form-input button:focus #light1 {
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
+  fill: #5fa8d3;
+}
+
+.form-input button:hover #dark1, .form-input button:focus #dark1 {
+  -webkit-transform: translateX(40%);
+          transform: translateX(40%);
+  opacity: 0;
+  fill: #5fa8d3;
+}
+
+.form-input button:hover #dark2, .form-input button:focus #dark2 {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  fill: #5fa8d3;
 }
 
 .form-input label {

@@ -17,6 +17,37 @@ header{
 #lien-accueil{
     max-height: 70px;
     margin: 0 30px;
+
+    svg{
+        animation: opacity 2s ease;
+    
+        &:hover{
+            & #E{
+                animation: basHautBasTitre 1s ease;
+                animation-delay: calc(var(--order) * 100ms);
+            }
+    
+            & #P{
+                animation: basHautBasTitre 1s ease;
+                animation-delay: calc(var(--order) * 100ms);
+            }
+    
+            & #O{
+                animation: basHautBasTitre 1s ease;
+                animation-delay: calc(var(--order) * 100ms);
+            }
+    
+            & #K{
+                animation: basHautBasTitre 1s ease;
+                animation-delay: calc(var(--order) * 100ms);
+            }
+    
+            & #A{
+                animation: basHautBasTitre 1s ease;
+                animation-delay: calc(var(--order) * 100ms);
+            }
+        }
+    }
 }
 
 #links{
@@ -49,38 +80,7 @@ header{
     color: #787878;
 }
 
-svg{
-    animation: opacity 2s ease;
-
-    &:hover{
-        & #E{
-            animation: basHautBas 1s ease;
-            animation-delay: calc(var(--order) * 100ms);
-        }
-
-        & #P{
-            animation: basHautBas 1s ease;
-            animation-delay: calc(var(--order) * 100ms);
-        }
-
-        & #O{
-            animation: basHautBas 1s ease;
-            animation-delay: calc(var(--order) * 100ms);
-        }
-
-        & #K{
-            animation: basHautBas 1s ease;
-            animation-delay: calc(var(--order) * 100ms);
-        }
-
-        & #A{
-            animation: basHautBas 1s ease;
-            animation-delay: calc(var(--order) * 100ms);
-        }
-    }
-}
-
-@keyframes basHautBas{
+@keyframes basHautBasTitre{
     0%{
         transform: translateY(0);
     } 
