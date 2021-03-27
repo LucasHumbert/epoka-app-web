@@ -49,14 +49,14 @@
                 <form action="../script/updateParamRemboursement.php" method="GET" id="form_remboursement">
                     <div id="div_param">
                         <div class="form-input">                            
-                            <input type="text" id="remboursement" name="remboursement" value="<?php echo($valeurs['prixKm']) ?>"required>
+                            <input type="text" id="remboursement" name="remboursement" autocomplete="off" value="<?php echo($valeurs['prixKm']) ?>"required>
                             <label for="remboursement">Remboursement au Km :</label>
                         </div>
 
                         <br />
 
                         <div class="form-input">
-                            <input type="text" id="indemnite" name="indemnite" value="<?php echo($valeurs['prixJournee']) ?>" required>
+                            <input type="text" id="indemnite" name="indemnite" autocomplete="off" value="<?php echo($valeurs['prixJournee']) ?>" required>
                             <label for="indemnite">Indemnité d'hébergement :</label>
                         </div>
                     </div>
@@ -80,8 +80,6 @@
                     </button>
                     
                 </form>
-            
-                <br /><br />
                 
                 <!-- Distance entre villes -->
 
@@ -95,33 +93,49 @@
 
                 <h2>Distance entre villes</h2>
                 <form action="../script/ajoutDistance.php" method="GET" id="distanceEntreVille">
-                    <label for="ville1">De :</label>
-                    <select id="ville1" name="ville1" required>
-                        <?php foreach($villes as $ville){ ?>
-                            <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
-                        <?php } ?>
-                    </select>
+                    <div id="select">
+                        <label for="ville1">De :</label>
+                        <select id="ville1" name="ville1" required>
+                            <?php foreach($villes as $ville){ ?>
+                                <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
+                            <?php } ?>
+                        </select>
 
-                    <br /><br />
 
-                    <label for="ville2">à :</label>
-                    <select id="ville2" name="ville2" required>
-                        <?php foreach($villes as $ville){ ?>
-                            <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
-                        <?php } ?>
-                    </select>
+                        <label for="ville2">à :</label>
+                        <select id="ville2" name="ville2" required>
+                            <?php foreach($villes as $ville){ ?>
+                                <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
 
-                    <br /><br />
+                    <br />
 
-                    <label for="distance">Distance en km :</label>
-                    <input type="text" id="distance" name="distance" required>
+                    <div class="form-input">
+                        <input type="text" id="distance" name="distance" autocomplete="off" required>
+                        <label for="distance">Distance en km :</label>
+                    </div>  
 
-                    <br /><br />
+                    <br />
 
-                    <input type="submit" value="Valider">
-                </form>
+                    <button>
+                        <p>Valider</p>    
 
-                <br /><br />            
+                        <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path id="dark1" d="M15.4007 12.1536C15.6674 12.3075 15.6674 12.6925 15.4007 12.8464L6.85019 17.7828C6.58352 17.9367 6.2502 17.7443 6.2502 17.4364L6.2502 7.56364C6.2502 7.25572 6.58352 7.06327 6.85019 7.21722L15.4007 12.1536Z" fill="#FFFFFF"/>
+                                <path id="light1" d="M10.4007 12.1536C10.6674 12.3075 10.6674 12.6925 10.4007 12.8464L1.85019 17.7828C1.58352 17.9367 1.2502 17.7443 1.2502 17.4364L1.2502 7.56364C1.2502 7.25572 1.58352 7.06327 1.85019 7.21722L10.4007 12.1536Z" fill="#FFFFFF"/>
+                                <path id="dark2" d="M10.4007 12.1536C10.6674 12.3075 10.6674 12.6925 10.4007 12.8464L1.85019 17.7828C1.58352 17.9367 1.2502 17.7443 1.2502 17.4364L1.2502 7.56364C1.2502 7.25572 1.58352 7.06327 1.85019 7.21722L10.4007 12.1536Z" fill="#FFFFFF"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="30" height="25" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                </form>         
 
                 <!-- Distances déjà saisie -->
                 <h2>Distances entre villes déjà saisies</h2>

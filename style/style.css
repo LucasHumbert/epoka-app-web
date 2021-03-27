@@ -460,7 +460,7 @@ header div {
 #sect_param {
   padding: 20px 10px;
   max-width: 600px;
-  margin: 150px auto 0;
+  margin: 110px auto 0;
   border: 1px solid #2f323a;
   border-radius: 12px;
   background-color: #2D2D2D;
@@ -486,12 +486,70 @@ header div {
   text-decoration: underline;
   text-align: center;
   font-size: 28px;
-  margin-bottom: 10px;
 }
 
 #sect_param h2 {
   text-align: center;
-  margin: 0 0 15px;
+  margin: 30px 0 15px;
+}
+
+#sect_param button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 130px;
+  height: 35px;
+  margin: 8px auto 0;
+  background: none;
+  border: 1px solid #FFF;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #FFF;
+  outline: none;
+}
+
+#sect_param button svg {
+  margin-left: 20px;
+}
+
+#sect_param button #dark1, #sect_param button #dark2, #sect_param button #light1 {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#sect_param button #dark2 {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+#sect_param button:hover, #sect_param button:focus {
+  border-color: #5fa8d3;
+  color: #5fa8d3;
+}
+
+#sect_param button:hover #light1, #sect_param button:focus #light1 {
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
+  fill: #5fa8d3;
+}
+
+#sect_param button:hover #dark1, #sect_param button:focus #dark1 {
+  -webkit-transform: translateX(40%);
+          transform: translateX(40%);
+  opacity: 0;
+  fill: #5fa8d3;
+}
+
+#sect_param button:hover #dark2, #sect_param button:focus #dark2 {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  fill: #5fa8d3;
 }
 
 #sect_param #ths {
@@ -519,6 +577,10 @@ header div {
 
 #sect_param #ths p:nth-child(3) {
   width: 60px;
+}
+
+#sect_param #form_remboursement {
+  margin-bottom: 10px;
 }
 
 #sect_param #form_remboursement #div_param {
@@ -554,9 +616,11 @@ header div {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
+  margin: 0;
+  background: none;
 }
 
-#sect_param #form_remboursement #div_param .form-input input[type="text"], #sect_param #form_remboursement #div_param .form-input input[type="password"] {
+#sect_param #form_remboursement #div_param .form-input input[type="text"] {
   width: 190px;
   border: none;
   border-bottom: 1px solid #fff;
@@ -568,72 +632,56 @@ header div {
   font-size: 18px;
 }
 
-#sect_param #form_remboursement #div_param .form-input input[type="text"]:focus, #sect_param #form_remboursement #div_param .form-input input[type="password"]:focus {
+#sect_param #form_remboursement #div_param .form-input input[type="text"]:focus {
   border-color: #5fa8d3;
   color: #5fa8d3;
 }
 
-#sect_param #form_remboursement #div_param .form-input input[type="text"]:focus + label, #sect_param #form_remboursement #div_param .form-input input[type="password"]:focus + label {
+#sect_param #form_remboursement #div_param .form-input input[type="text"]:focus + label {
   color: #5fa8d3;
 }
 
-#sect_param #form_remboursement button {
+#sect_param #distanceEntreVille {
+  margin-bottom: 10px;
+}
+
+#sect_param #distanceEntreVille #select {
+  text-align: center;
+}
+
+#sect_param #distanceEntreVille .form-input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 130px;
-  height: 35px;
-  margin: 8px auto 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  margin: 10px auto 0;
+  width: 190px;
+  text-align: center;
   background: none;
-  border: 1px solid #FFF;
-  border-radius: 20px;
-  cursor: pointer;
-  color: #FFF;
+}
+
+#sect_param #distanceEntreVille .form-input input[type="text"] {
+  width: 190px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: #2D2D2D;
+  color: #fff;
   outline: none;
+  margin-top: 5px;
+  line-height: 22px;
+  font-size: 18px;
 }
 
-#sect_param #form_remboursement button svg {
-  margin-left: 20px;
-}
-
-#sect_param #form_remboursement button #dark1, #sect_param #form_remboursement button #dark2, #sect_param #form_remboursement button #light1 {
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-}
-
-#sect_param #form_remboursement button #dark2 {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-}
-
-#sect_param #form_remboursement button:hover, #sect_param #form_remboursement button:focus {
+#sect_param #distanceEntreVille .form-input input[type="text"]:focus {
   border-color: #5fa8d3;
   color: #5fa8d3;
 }
 
-#sect_param #form_remboursement button:hover #light1, #sect_param #form_remboursement button:focus #light1 {
-  -webkit-transform: translateX(20%);
-          transform: translateX(20%);
-  fill: #5fa8d3;
-}
-
-#sect_param #form_remboursement button:hover #dark1, #sect_param #form_remboursement button:focus #dark1 {
-  -webkit-transform: translateX(40%);
-          transform: translateX(40%);
-  opacity: 0;
-  fill: #5fa8d3;
-}
-
-#sect_param #form_remboursement button:hover #dark2, #sect_param #form_remboursement button:focus #dark2 {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-  fill: #5fa8d3;
+#sect_param #distanceEntreVille .form-input input[type="text"]:focus + label {
+  color: #5fa8d3;
 }
 
 #sect_param #tableau {

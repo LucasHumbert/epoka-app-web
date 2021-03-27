@@ -2,7 +2,7 @@
 
     padding: 20px 10px;
     max-width: 600px;
-    margin: 150px auto 0;
+    margin: 110px auto 0;
     border: 1px solid #2f323a;
     border-radius: 12px;
     background-color: #2D2D2D;
@@ -17,12 +17,59 @@
         text-decoration: underline;
         text-align: center;
         font-size: 28px;
-        margin-bottom: 10px;
     }
 
     h2{
         text-align: center;
-        margin: 0 0 15px;
+        margin: 30px 0 15px;
+    }
+
+    button{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 130px;
+        height: 35px;
+        margin: 8px auto 0;
+        background: none;
+        border: 1px solid #FFF;
+        border-radius: 20px;
+        cursor: pointer;
+        color: #FFF;
+        outline: none;
+
+        svg{
+            margin-left: 20px;
+        }
+
+        #dark1, #dark2, #light1{
+            transition: all 1s ease;
+        }
+
+        #dark2{
+            transform: translateX(-100%);
+        }
+
+        &:hover, &:focus{
+            border-color: #5fa8d3;
+            color: #5fa8d3;
+
+            & #light1{
+                transform: translateX(20%);
+                fill: #5fa8d3;
+            }
+
+            & #dark1{
+                transform: translateX(40%);
+                opacity: 0;
+                fill: #5fa8d3;
+            }
+
+            & #dark2{
+                transform: translateX(0);
+                fill: #5fa8d3;
+            }
+        }
     }
 
     #ths{
@@ -51,6 +98,8 @@
     }
 
     #form_remboursement{
+        margin-bottom: 10px;
+
         #div_param{
             display: flex;
             align-items: center;
@@ -67,8 +116,10 @@
             .form-input{
                 display: flex;
                 flex-direction: column-reverse;
+                margin: 0;
+                background: none;
             
-                input[type="text"], input[type="password"]{
+                input[type="text"]{
                     width: 190px;
                     border:none;
                     border-bottom: 1px solid #fff;
@@ -90,51 +141,41 @@
                 }
             }
         }
+    }
 
-        button{
+    #distanceEntreVille{
+        margin-bottom: 10px;
+
+        #select{
+            text-align: center;
+        }
+
+        .form-input{
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            width: 130px;
-            height: 35px;
-            margin: 8px auto 0;
+            flex-direction: column-reverse;
+            margin: 10px auto 0;
+            width: 190px;
+            text-align: center;
             background: none;
-            border: 1px solid #FFF;
-            border-radius: 20px;
-            cursor: pointer;
-            color: #FFF;
-            outline: none;
-    
-            svg{
-                margin-left: 20px;
-            }
-    
-            #dark1, #dark2, #light1{
-                transition: all 1s ease;
-            }
-    
-            #dark2{
-                transform: translateX(-100%);
-            }
-    
-            &:hover, &:focus{
-                border-color: #5fa8d3;
-                color: #5fa8d3;
-    
-                & #light1{
-                    transform: translateX(20%);
-                    fill: #5fa8d3;
-                }
-    
-                & #dark1{
-                    transform: translateX(40%);
-                    opacity: 0;
-                    fill: #5fa8d3;
-                }
-    
-                & #dark2{
-                    transform: translateX(0);
-                    fill: #5fa8d3;
+        
+            input[type="text"]{
+                width: 190px;
+                border:none;
+                border-bottom: 1px solid #fff;
+                background-color: #2D2D2D;
+                color: #fff;
+                outline: none;
+                margin-top: 5px;
+                line-height: 22px;
+                font-size: 18px;
+        
+                &:focus{
+                    border-color: #5fa8d3;
+                    color: #5fa8d3;
+        
+                    & + label{
+                        color: #5fa8d3;
+                    }
                 }
             }
         }
