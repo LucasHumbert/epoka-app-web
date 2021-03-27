@@ -51,39 +51,34 @@ header{
 
 svg{
     animation: opacity 2s ease;
+
+    &:hover{
+        & #E{
+            animation: basHautBas 1s ease;
+            animation-delay: calc(var(--order) * 100ms);
+        }
+
+        & #P{
+            animation: basHautBas 1s ease;
+            animation-delay: calc(var(--order) * 100ms);
+        }
+
+        & #O{
+            animation: basHautBas 1s ease;
+            animation-delay: calc(var(--order) * 100ms);
+        }
+
+        & #K{
+            animation: basHautBas 1s ease;
+            animation-delay: calc(var(--order) * 100ms);
+        }
+
+        & #A{
+            animation: basHautBas 1s ease;
+            animation-delay: calc(var(--order) * 100ms);
+        }
+    }
 }
-
-
-svg:hover #E{
-    animation: basHautBas 1s ease;
-    animation-delay: calc(var(--order) * 100ms);
-    animation-iteration-count: 1;
-}
-
-svg:hover #P{
-    animation: basHautBas 1s ease;
-    animation-delay: calc(var(--order) * 100ms);
-    animation-iteration-count: 1;
-}
-
-svg:hover #O{
-    animation: basHautBas 1s ease;
-    animation-delay: calc(var(--order) * 100ms);
-    animation-iteration-count: 1;
-}
-
-svg:hover #K{
-    animation: basHautBas 1s ease;
-    animation-delay: calc(var(--order) * 100ms);
-    animation-iteration-count: 1;
-}
-
-svg:hover #A{
-    animation: basHautBas 1s ease;
-    animation-delay: calc(var(--order) * 100ms);
-    animation-iteration-count: 1;
-}
-
 
 @keyframes basHautBas{
     0%{
