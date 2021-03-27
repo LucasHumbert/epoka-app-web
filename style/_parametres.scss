@@ -1,31 +1,181 @@
 #sect_param{
 
+    padding: 20px 10px;
+    max-width: 600px;
+    margin: 150px auto 0;
+    border: 1px solid #2f323a;
+    border-radius: 12px;
+    background-color: #2D2D2D;
+    color: #FFF;
+    box-shadow: 5px 5px 8px black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
     h1{
-        margin: 20px 10px 0 10px;
+        text-align: center;
+        text-decoration: underline;
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 10px;
     }
-    
+
     h2{
-        margin: 15px 10px 0 10px;
+        text-align: center;
+        margin: 0 0 15px;
     }
-    
-    #form_remboursement{
-        margin: 5px 10px 0 12px;
-    }
-    
-    #distanceEntreVille{
-        margin: 10px 10px 0 12px;
-    }
-    
-    table{
-        margin: 10px 10px 0 0;
-    }
-    
-    td, th{
-        padding: 4px 25px 4px 15px;
-    }
-    
-    table, tr, td, th{
+
+    #ths{
+        display: flex;
+        width: 580px;
+        max-height: 27px;
         border-bottom: 1px solid #000;
-        border-collapse: collapse;
+
+        & p{
+            padding: 4px 25px 4px 15px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        & p:nth-child(1){
+            width: 197px;
+        }
+
+        & p:nth-child(2){
+            width: 203px;
+        }
+
+        & p:nth-child(3){
+            width: 60px;
+        }
     }
+
+    #form_remboursement{
+        #div_param{
+            display: flex;
+            align-items: center;
+            width: 450px;
+            margin: 0  auto;
+
+            div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 225px;
+            }
+
+            .form-input{
+                display: flex;
+                flex-direction: column-reverse;
+            
+                input[type="text"], input[type="password"]{
+                    width: 190px;
+                    border:none;
+                    border-bottom: 1px solid #fff;
+                    background-color: #2D2D2D;
+                    color: #fff;
+                    outline: none;
+                    margin-top: 5px;
+                    line-height: 22px;
+                    font-size: 18px;
+            
+                    &:focus{
+                        border-color: #5fa8d3;
+                        color: #5fa8d3;
+            
+                        & + label{
+                            color: #5fa8d3;
+                        }
+                    }
+                }
+            }
+        }
+
+        button{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 130px;
+            height: 35px;
+            margin: 8px auto 0;
+            background: none;
+            border: 1px solid #FFF;
+            border-radius: 20px;
+            cursor: pointer;
+            color: #FFF;
+            outline: none;
+    
+            svg{
+                margin-left: 20px;
+            }
+    
+            #dark1, #dark2, #light1{
+                transition: all 1s ease;
+            }
+    
+            #dark2{
+                transform: translateX(-100%);
+            }
+    
+            &:hover, &:focus{
+                border-color: #5fa8d3;
+                color: #5fa8d3;
+    
+                & #light1{
+                    transform: translateX(20%);
+                    fill: #5fa8d3;
+                }
+    
+                & #dark1{
+                    transform: translateX(40%);
+                    opacity: 0;
+                    fill: #5fa8d3;
+                }
+    
+                & #dark2{
+                    transform: translateX(0);
+                    fill: #5fa8d3;
+                }
+            }
+        }
+    }
+    
+    #tableau{
+        min-height: 320px;
+        max-height: 320px;
+        overflow-y: scroll;
+        width: 600px;
+
+        table{
+            width: 580px;
+
+            td{
+                padding: 4px 25px 4px 15px;
+            }
+
+            &, tr, td{
+                border-bottom: 1px solid #000;
+                border-collapse: collapse;
+            }
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #FFF;
+      }
+      
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+
+        &:hover{
+            background: #555;
+        }
+      }
+      
 }

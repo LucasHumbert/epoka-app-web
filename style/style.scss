@@ -8,6 +8,11 @@ html{
     background: linear-gradient(0.25turn, #F1F1F1, #C7C7C7, #F1F1F1);
     width: 100%;
     height: 100%;
+    user-select: none;
+}
+
+body{
+    height: 100%;
 }
 
 @import './header';

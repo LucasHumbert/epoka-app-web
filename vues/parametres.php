@@ -47,18 +47,38 @@
                 <h2>Montant du remboursement au km</h2>
 
                 <form action="../script/updateParamRemboursement.php" method="GET" id="form_remboursement">
-                    <label for="remboursement">Remboursement au Km :</label>
-                    <input type="text" id="remboursement" name="remboursement" value="<?php echo($valeurs['prixKm']) ?>"required>
+                    <div id="div_param">
+                        <div class="form-input">                            
+                            <input type="text" id="remboursement" name="remboursement" value="<?php echo($valeurs['prixKm']) ?>"required>
+                            <label for="remboursement">Remboursement au Km :</label>
+                        </div>
 
-                    <br /><br />
+                        <br />
 
-                    <label for="indemnite">Indemnité d'hébergement :</label>
-                    <input type="text" id="indemnite" name="indemnite" value="<?php echo($valeurs['prixJournee']) ?>" required>
+                        <div class="form-input">
+                            <input type="text" id="indemnite" name="indemnite" value="<?php echo($valeurs['prixJournee']) ?>" required>
+                            <label for="indemnite">Indemnité d'hébergement :</label>
+                        </div>
+                    </div>
 
-                    <br /><br />
+                    <br />
+                    <button>
+                        <p>Valider</p>    
 
-                    <input type="submit" value="Valider">
-
+                        <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path id="dark1" d="M15.4007 12.1536C15.6674 12.3075 15.6674 12.6925 15.4007 12.8464L6.85019 17.7828C6.58352 17.9367 6.2502 17.7443 6.2502 17.4364L6.2502 7.56364C6.2502 7.25572 6.58352 7.06327 6.85019 7.21722L15.4007 12.1536Z" fill="#FFFFFF"/>
+                                <path id="light1" d="M10.4007 12.1536C10.6674 12.3075 10.6674 12.6925 10.4007 12.8464L1.85019 17.7828C1.58352 17.9367 1.2502 17.7443 1.2502 17.4364L1.2502 7.56364C1.2502 7.25572 1.58352 7.06327 1.85019 7.21722L10.4007 12.1536Z" fill="#FFFFFF"/>
+                                <path id="dark2" d="M10.4007 12.1536C10.6674 12.3075 10.6674 12.6925 10.4007 12.8464L1.85019 17.7828C1.58352 17.9367 1.2502 17.7443 1.2502 17.4364L1.2502 7.56364C1.2502 7.25572 1.58352 7.06327 1.85019 7.21722L10.4007 12.1536Z" fill="#FFFFFF"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="30" height="25" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                    
                 </form>
             
                 <br /><br />
@@ -82,6 +102,8 @@
                         <?php } ?>
                     </select>
 
+                    <br /><br />
+
                     <label for="ville2">à :</label>
                     <select id="ville2" name="ville2" required>
                         <?php foreach($villes as $ville){ ?>
@@ -89,8 +111,10 @@
                         <?php } ?>
                     </select>
 
+                    <br /><br />
+
                     <label for="distance">Distance en km :</label>
-                    <input type="text" name="distance" required>
+                    <input type="text" id="distance" name="distance" required>
 
                     <br /><br />
 
@@ -104,29 +128,31 @@
 
                 <?php
                     $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
-                    $stmt = $pdo->prepare ("SELECT dis_km, a.vil_nom as ville1, b.vil_nom as ville2 FROM distance d JOIN ville a ON d.dis_idVilleDepart =a.vil_id JOIN ville b ON d.dis_idVilleArrivee = b.vil_id ORDER BY dis_km DESC");
+                    $stmt = $pdo->prepare ("SELECT dis_km, a.vil_nom as ville1, b.vil_nom as ville2 FROM distance d JOIN ville a ON d.dis_idVilleDepart =a.vil_id JOIN ville b ON d.dis_idVilleArrivee = b.vil_id ORDER BY ville1");
                     $stmt->execute ();
                     $villes = $stmt -> fetchAll();
                 ?>
 
-                <table>
-                    <tr>
-                        <th>De</th>
-                        <th>A</th>
-                        <th>Km</th>
-                    </tr>
-                    
-                    <?php foreach($villes as $ville){ ?>
-                    
-                    <tr>
-                        <td><?php echo($ville['ville1']) ?></td>
-                        <td><?php echo($ville['ville2']) ?></td>
-                        <td><?php echo($ville['dis_km']) ?></td>
-                    </tr>
+                <div id="ths">
+                    <p>De</p>
+                    <p>A</p>
+                    <p>Km</p>
+                </div>
 
-                    <?php } ?>
+                <div id="tableau">
+                    <table>
+                        <?php foreach($villes as $ville){ ?>
+                        
+                        <tr>
+                            <td><?php echo($ville['ville1']) ?></td>
+                            <td><?php echo($ville['ville2']) ?></td>
+                            <td><?php echo($ville['dis_km']) ?></td>
+                        </tr>
 
-                </table>
+                        <?php } ?>
+
+                    </table>
+                </div>
             </section>
 
         <?php 

@@ -9,6 +9,14 @@ html {
   background: linear-gradient(0.25turn, #F1F1F1, #C7C7C7, #F1F1F1);
   width: 100%;
   height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  height: 100%;
 }
 
 header {
@@ -180,6 +188,11 @@ header div {
 
 /* ---- IDENTIFICATION ---- */
 #sec_identification {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -193,9 +206,8 @@ header div {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 150px auto 0;
-  width: 280px;
-  height: 300px;
+  width: 320px;
+  height: 370px;
   border: 1px solid #2f323a;
   border-radius: 8px;
   background-color: #2D2D2D;
@@ -207,6 +219,8 @@ header div {
 #sec_identification h1 {
   text-decoration: underline;
   text-align: center;
+  font-size: 28px;
+  cursor: default;
 }
 
 #sec_identification form {
@@ -221,19 +235,19 @@ header div {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  margin-top: 35px;
+  margin-top: 40px;
 }
 
 .form-input input[type="text"], .form-input input[type="password"] {
-  width: 230px;
+  width: 250px;
   border: none;
   border-bottom: 1px solid #fff;
   background-color: #2D2D2D;
   color: #fff;
   outline: none;
   margin-top: 5px;
-  line-height: 20px;
-  font-size: 16px;
+  line-height: 22px;
+  font-size: 18px;
 }
 
 .form-input input[type="text"]:focus, .form-input input[type="password"]:focus {
@@ -257,7 +271,7 @@ header div {
           align-items: center;
   width: 130px;
   height: 35px;
-  margin: 0px auto 0;
+  margin: 8px auto 0;
   background: none;
   border: 1px solid #FFF;
   border-radius: 20px;
@@ -305,7 +319,7 @@ header div {
 }
 
 .form-input label {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 #bulle-etat-connecte {
@@ -443,33 +457,219 @@ header div {
   margin: 0 0 0 8px;
 }
 
+#sect_param {
+  padding: 20px 10px;
+  max-width: 600px;
+  margin: 150px auto 0;
+  border: 1px solid #2f323a;
+  border-radius: 12px;
+  background-color: #2D2D2D;
+  color: #FFF;
+  -webkit-box-shadow: 5px 5px 8px black;
+          box-shadow: 5px 5px 8px black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* Track */
+  /* Handle */
+}
+
 #sect_param h1 {
-  margin: 20px 10px 0 10px;
+  text-align: center;
+  text-decoration: underline;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 #sect_param h2 {
-  margin: 15px 10px 0 10px;
+  text-align: center;
+  margin: 0 0 15px;
 }
 
-#sect_param #form_remboursement {
-  margin: 5px 10px 0 12px;
+#sect_param #ths {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 580px;
+  max-height: 27px;
+  border-bottom: 1px solid #000;
 }
 
-#sect_param #distanceEntreVille {
-  margin: 10px 10px 0 12px;
+#sect_param #ths p {
+  padding: 4px 25px 4px 15px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-#sect_param table {
-  margin: 10px 10px 0 0;
+#sect_param #ths p:nth-child(1) {
+  width: 197px;
 }
 
-#sect_param td, #sect_param th {
+#sect_param #ths p:nth-child(2) {
+  width: 203px;
+}
+
+#sect_param #ths p:nth-child(3) {
+  width: 60px;
+}
+
+#sect_param #form_remboursement #div_param {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 450px;
+  margin: 0  auto;
+}
+
+#sect_param #form_remboursement #div_param div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 225px;
+}
+
+#sect_param #form_remboursement #div_param .form-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+#sect_param #form_remboursement #div_param .form-input input[type="text"], #sect_param #form_remboursement #div_param .form-input input[type="password"] {
+  width: 190px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: #2D2D2D;
+  color: #fff;
+  outline: none;
+  margin-top: 5px;
+  line-height: 22px;
+  font-size: 18px;
+}
+
+#sect_param #form_remboursement #div_param .form-input input[type="text"]:focus, #sect_param #form_remboursement #div_param .form-input input[type="password"]:focus {
+  border-color: #5fa8d3;
+  color: #5fa8d3;
+}
+
+#sect_param #form_remboursement #div_param .form-input input[type="text"]:focus + label, #sect_param #form_remboursement #div_param .form-input input[type="password"]:focus + label {
+  color: #5fa8d3;
+}
+
+#sect_param #form_remboursement button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 130px;
+  height: 35px;
+  margin: 8px auto 0;
+  background: none;
+  border: 1px solid #FFF;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #FFF;
+  outline: none;
+}
+
+#sect_param #form_remboursement button svg {
+  margin-left: 20px;
+}
+
+#sect_param #form_remboursement button #dark1, #sect_param #form_remboursement button #dark2, #sect_param #form_remboursement button #light1 {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#sect_param #form_remboursement button #dark2 {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+#sect_param #form_remboursement button:hover, #sect_param #form_remboursement button:focus {
+  border-color: #5fa8d3;
+  color: #5fa8d3;
+}
+
+#sect_param #form_remboursement button:hover #light1, #sect_param #form_remboursement button:focus #light1 {
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
+  fill: #5fa8d3;
+}
+
+#sect_param #form_remboursement button:hover #dark1, #sect_param #form_remboursement button:focus #dark1 {
+  -webkit-transform: translateX(40%);
+          transform: translateX(40%);
+  opacity: 0;
+  fill: #5fa8d3;
+}
+
+#sect_param #form_remboursement button:hover #dark2, #sect_param #form_remboursement button:focus #dark2 {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  fill: #5fa8d3;
+}
+
+#sect_param #tableau {
+  min-height: 320px;
+  max-height: 320px;
+  overflow-y: scroll;
+  width: 600px;
+}
+
+#sect_param #tableau table {
+  width: 580px;
+}
+
+#sect_param #tableau table td {
   padding: 4px 25px 4px 15px;
 }
 
-#sect_param table, #sect_param tr, #sect_param td, #sect_param th {
+#sect_param #tableau table, #sect_param #tableau table tr, #sect_param #tableau table td {
   border-bottom: 1px solid #000;
   border-collapse: collapse;
+}
+
+#sect_param ::-webkit-scrollbar {
+  width: 10px;
+}
+
+#sect_param ::-webkit-scrollbar-track {
+  background: #FFF;
+}
+
+#sect_param ::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+#sect_param ::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 #sect_error_not_connected {
