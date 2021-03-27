@@ -15,9 +15,8 @@ header{
 }
 
 #lien-accueil{
-    outline: none;
-    color: #FFF;
-    text-decoration: none;
+    max-height: 70px;
+    margin: 0 30px;
 }
 
 #links{
@@ -50,8 +49,62 @@ header{
     color: #787878;
 }
 
+svg{
+    animation: opacity 2s ease;
+}
 
-#title{
-    font-size: 22px;
-    margin: 0 30px;
+
+svg:hover #E{
+    animation: basHautBas 1s ease;
+    animation-delay: calc(var(--order) * 100ms);
+    animation-iteration-count: 1;
+}
+
+svg:hover #P{
+    animation: basHautBas 1s ease;
+    animation-delay: calc(var(--order) * 100ms);
+    animation-iteration-count: 1;
+}
+
+svg:hover #O{
+    animation: basHautBas 1s ease;
+    animation-delay: calc(var(--order) * 100ms);
+    animation-iteration-count: 1;
+}
+
+svg:hover #K{
+    animation: basHautBas 1s ease;
+    animation-delay: calc(var(--order) * 100ms);
+    animation-iteration-count: 1;
+}
+
+svg:hover #A{
+    animation: basHautBas 1s ease;
+    animation-delay: calc(var(--order) * 100ms);
+    animation-iteration-count: 1;
+}
+
+
+@keyframes basHautBas{
+    0%{
+        transform: translateY(0);
+    } 
+    25%{
+        transform: translateY(-20%);
+    }
+    75%{
+        transform: translateY(4%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes opacity{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
