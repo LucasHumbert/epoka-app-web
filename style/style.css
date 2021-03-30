@@ -649,6 +649,50 @@ header div {
   text-align: center;
 }
 
+#sect_param #distanceEntreVille .formfield-select {
+  position: relative;
+  width: 220px;
+  float: left;
+}
+
+#sect_param #distanceEntreVille .formfield-select--container {
+  position: relative;
+  background-color: #fff;
+  border: #777 1px solid;
+  margin: 0 0 1.5em 0;
+  overflow: hidden;
+}
+
+#sect_param #distanceEntreVille .formfield-select--container select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: auto;
+  border: 0;
+  margin: 0;
+  padding: 5px;
+  border-radius: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#sect_param #distanceEntreVille .formfield-select--container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  margin-top: -3px;
+  right: .75em;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-top-color: #444;
+  border-width: 6px;
+  border-style: solid;
+  pointer-events: none;
+}
+
 #sect_param #distanceEntreVille .form-input {
   display: -webkit-box;
   display: -ms-flexbox;

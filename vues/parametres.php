@@ -94,20 +94,28 @@
                 <h2>Distance entre villes</h2>
                 <form action="../script/ajoutDistance.php" method="GET" id="distanceEntreVille">
                     <div id="select">
-                        <label for="ville1">De :</label>
-                        <select id="ville1" name="ville1" required>
-                            <?php foreach($villes as $ville){ ?>
-                                <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
-                            <?php } ?>
-                        </select>
 
+                        <div class="formfield-select">
+                            <label for="ville1">De :</label>
+                            <div class="formfield-select--container">
+                                <select id="ville1" name="ville1" required>
+                                    <?php foreach($villes as $ville){ ?>
+                                        <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
 
-                        <label for="ville2">à :</label>
-                        <select id="ville2" name="ville2" required>
-                            <?php foreach($villes as $ville){ ?>
-                                <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
-                            <?php } ?>
-                        </select>
+                        <div class="formfield-select">
+                            <label for="ville2">à :</label>
+                            <div class="formfield-select--container">
+                                <select id="ville2" name="ville2" required>
+                                    <?php foreach($villes as $ville){ ?>
+                                        <option value="<?php echo($ville['vil_id']) ?>"><?php echo($ville['vil_nom']) ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <br />
