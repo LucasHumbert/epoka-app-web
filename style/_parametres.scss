@@ -2,7 +2,7 @@
 
     padding: 20px 10px;
     max-width: 600px;
-    margin: 110px auto 0;
+    margin: 90px auto 0;
     border: 1px solid #2f323a;
     border-radius: 12px;
     background-color: #2D2D2D;
@@ -147,7 +147,12 @@
         margin-bottom: 10px;
 
         #select{
+            width: 520px;
+            margin: 0 auto;
             text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: space-around;
         }
 
         .formfield-select {

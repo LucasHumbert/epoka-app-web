@@ -54,6 +54,7 @@ header{
     display: flex;
     justify-content: flex-start;
     margin-right: 10px;
+    animation: opacity 1.5s ease;
 
     a{
         height: 45px;
@@ -78,28 +79,4 @@ header{
     display: flex;
     align-items: center;
     color: #787878;
-}
-
-@keyframes basHautBasTitre{
-    0%{
-        transform: translateY(0);
-    } 
-    25%{
-        transform: translateY(-20%);
-    }
-    75%{
-        transform: translateY(4%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes opacity{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
 }

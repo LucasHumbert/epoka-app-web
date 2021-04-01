@@ -15,6 +15,30 @@ body{
     height: 100%;
 }
 
+@keyframes basHautBasTitre{
+    0%{
+        transform: translateY(0);
+    } 
+    25%{
+        transform: translateY(-20%);
+    }
+    75%{
+        transform: translateY(4%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes opacity{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 @import './header';
 @import './identification';
 @import './bulle_etat';

@@ -176,6 +176,7 @@
                     </table>
                 </div>
             </section>
+            <br /><br />
 
         <?php 
         }
