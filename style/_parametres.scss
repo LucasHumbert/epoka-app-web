@@ -2,7 +2,7 @@
 
     padding: 20px 10px;
     max-width: 600px;
-    margin: 90px auto 0;
+    margin: 50px auto 0;
     border: 1px solid #2f323a;
     border-radius: 12px;
     background-color: #2D2D2D;
@@ -11,6 +11,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    animation: opacity 1s ease;
 
     h1{
         text-align: center;

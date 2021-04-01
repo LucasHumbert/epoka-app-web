@@ -430,6 +430,11 @@ header div {
   }
 }
 
+#sect_tableau {
+  -webkit-animation: opacity 1.5s ease;
+          animation: opacity 1.5s ease;
+}
+
 #sect_tableau h1 {
   margin: 20px 10px 0 10px;
 }
@@ -464,7 +469,7 @@ header div {
 #sect_param {
   padding: 20px 10px;
   max-width: 600px;
-  margin: 90px auto 0;
+  margin: 50px auto 0;
   border: 1px solid #2f323a;
   border-radius: 12px;
   background-color: #2D2D2D;
@@ -481,6 +486,8 @@ header div {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-animation: opacity 1s ease;
+          animation: opacity 1s ease;
   /* Track */
   /* Handle */
 }

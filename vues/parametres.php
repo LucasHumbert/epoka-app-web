@@ -118,8 +118,6 @@
                         </div>
                     </div>
 
-                    <br />
-
                     <div class="form-input">
                         <input type="text" id="distance" name="distance" autocomplete="off" required>
                         <label for="distance">Distance en km :</label>
