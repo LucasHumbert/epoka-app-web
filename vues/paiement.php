@@ -24,7 +24,7 @@
         if($_SESSION ["peutPayer"] != 1){
         ?>
 
-        <div id="bulle-etat-non-autorise">
+        <div id="bulle-etat-error">
             <p>Vous n'êtes pas autorisé à accéder à cette page !</p>
         </div>
 
@@ -150,13 +150,13 @@
                 $distance = $stmtKm['dis_km'];
 
                 if (!isset($distance)){
-                    return("Distance entre $nomVille1 et <br />$nomVille2 non renseigné");
+                    return("Distance entre $nomVille1 et <br />$nomVille2 non renseignée");
                 }
              
                 
 
                 //nombre de jours de la mission
-                $stmt = $pdo->prepare ("SELECT DATEDIFF(mis_dateFin, mis_dateDebut) as dateDiff FROM mission WHERE mis_id = :idMission");
+                $stmt = $pdo->prepare ("SELECT DATEDIFF(mis_dateFin, mis_dateDebut) + 1 as dateDiff FROM mission WHERE mis_id = :idMission");
                 $stmt->bindParam ("idMission", $idMission,PDO::PARAM_INT);
                 $stmt->execute ();
                 $stmtJour = $stmt -> fetch();
@@ -176,7 +176,7 @@
 
 
                 //calcul
-                $montant = ($distance * $prixKm) + ($nbJours * $prixJournee);
+                $montant = ($distance * $prixKm) * 2 + ($nbJours * $prixJournee);
 
                 return(number_format($montant, 2, '.', '')."€");
             }

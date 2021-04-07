@@ -25,7 +25,7 @@
         if($_SESSION ["peutValider"] != 1){
         ?>
 
-        <div id="bulle-etat-non-autorise">
+        <div id="bulle-etat-error">
             <p>Vous n'êtes pas autorisé à accéder à cette page !</p>
         </div>
 

@@ -18,7 +18,7 @@
     <!-- LIENS CONNECTÉ -->
     <div id="links">
         <a href="../script/deconnexion.php">
-            <p>Deconnexion</p>
+            <p>Déconnexion</p>
         </a>
 
         <a href="../vues/validation.php">

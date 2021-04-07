@@ -24,8 +24,9 @@
         header('location: ../index.php');
         
     } else {
-        die("<div><center> Numéro ou mot de passe incorrect <br />
-        <a href='javascript:history.back()' color='#5fa8d3';>Page précédente</a> </center></div>");
+        session_start();
+        $_SESSION["error"] = "Numéro ou mot de passe incorrect";
+        header('location: ../index.php');
     }
 
 ?>

@@ -27,12 +27,12 @@
 
     <?php
         } else {
+            if(isset($_SESSION["error"])){
+                echo("<div id='bulle-etat-error'><p>". $_SESSION["error"] . "</p></div>");
+                session_destroy();
+            }
+        }
     ?>
-
-    <div id="bulle-deconnecte">
-        <p></p>
-    </div>
-    <?php }?>
 
     <?php if(!isset($_SESSION["numero"])){ ?>
 
