@@ -152,8 +152,6 @@ header div {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-right: 10px;
-  -webkit-animation: opacity 1.5s ease;
-          animation: opacity 1.5s ease;
 }
 
 #links a {
@@ -216,8 +214,6 @@ header div {
   color: #FFF;
   -webkit-box-shadow: 5px 5px 8px black;
           box-shadow: 5px 5px 8px black;
-  -webkit-animation: opacity 1s ease;
-          animation: opacity 1s ease;
 }
 
 #sec_identification h1 {
@@ -430,11 +426,6 @@ header div {
   }
 }
 
-#sect_tableau {
-  -webkit-animation: opacity 1.5s ease;
-          animation: opacity 1.5s ease;
-}
-
 #sect_tableau h1 {
   margin: 20px 10px 0 10px;
 }
@@ -486,8 +477,6 @@ header div {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-animation: opacity 1s ease;
-          animation: opacity 1s ease;
   /* Track */
   /* Handle */
 }
