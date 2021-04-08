@@ -1,8 +1,21 @@
 <?php
+    session_start();    
     
-    if (!isset($_POST["numero"])) die ("Numéro absent");
+    if (empty($_POST["numero"])){
+        $_SESSION["error"] = "Numéro absent";
+        die(header('location: ../index.php'));
+    }
+
+    if (!is_numeric($_POST["numero"])){
+        $_SESSION["error"] = "Numéro ou mot de passe incorrect";
+        die(header('location: ../index.php'));
+    }
     $numero = $_POST["numero"];
-    if (!isset($_POST["mdp"])) die ("Mdp absent");
+
+    if (empty($_POST["mdp"])){
+        $_SESSION["error"] = "Mdp absent";
+        die(header('location: ../index.php'));
+    }
     $mdp = $_POST["mdp"];
 
     $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
@@ -13,7 +26,6 @@
 
     if ($ligne = $stmt->fetch()){
         
-        session_start();
         $_SESSION ["numero"] = $numero;
         $_SESSION ["nom"] = $ligne["sal_nom"];
         $_SESSION ["prenom"] = $ligne["sal_prenom"];
@@ -24,7 +36,6 @@
         header('location: ../index.php');
         
     } else {
-        session_start();
         $_SESSION["error"] = "Numéro ou mot de passe incorrect";
         header('location: ../index.php');
     }

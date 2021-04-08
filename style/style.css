@@ -57,24 +57,6 @@ body {
   }
 }
 
-@-webkit-keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 header {
   width: 100%;
   height: 70px;
@@ -102,11 +84,6 @@ header div {
 #lien-accueil {
   max-height: 70px;
   margin: 0 30px;
-}
-
-#lien-accueil svg {
-  -webkit-animation: opacity 2s ease;
-          animation: opacity 2s ease;
 }
 
 #lien-accueil svg:hover #E {
@@ -328,7 +305,7 @@ header div {
   height: 30px;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: #10B981;
+  background-color: #198754;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -338,6 +315,11 @@ header div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#bulle-vide {
+  margin: 20px auto 0;
+  height: 32px;
 }
 
 #bulle-etat-error {
@@ -431,6 +413,7 @@ header div {
 
 #sect_tableau td, #sect_tableau th {
   padding: 4px 25px 4px 15px;
+  text-align: left;
 }
 
 #sect_tableau table, #sect_tableau tr, #sect_tableau td, #sect_tableau th {
@@ -455,7 +438,7 @@ header div {
 #sect_param {
   padding: 20px 10px;
   max-width: 600px;
-  margin: 50px auto 0;
+  margin: 20px auto 0;
   border: 1px solid #2f323a;
   border-radius: 12px;
   background-color: #2D2D2D;
@@ -765,71 +748,5 @@ header div {
 
 #sect_param ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-#sect_error_not_connected {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: sans-serif;
-}
-
-#sect_error_not_connected div {
-  width: 500px;
-  height: 300px;
-  background-color: #FFF;
-  border: 2px solid #FF0000;
-  border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-#sect_error_not_connected div h1 {
-  margin: 0;
-  color: #FF0000;
-  font-size: 35px;
-}
-
-#sect_error_not_connected div p {
-  margin: 0 10px;
-  font-size: 23px;
-  text-align: center;
-}
-
-#sect_error_not_connected div button {
-  width: 110px;
-  height: 35px;
-  margin: 0px auto 0;
-  background: none;
-  border: 1px solid #000;
-  border-radius: 20px;
-  color: #000;
-  outline: none;
-  cursor: pointer;
-}
-
-#sect_error_not_connected div button:hover, #sect_error_not_connected div button:focus {
-  border-color: #FF0000;
-  color: #FF0000;
 }
 /*# sourceMappingURL=style.css.map */

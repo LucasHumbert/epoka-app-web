@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION["numero"])){
-        require_once("../vues/error-not-connected.php");
+        header('location: ../vues/accueil.php');
         die();
     }
 ?>
@@ -40,7 +40,7 @@
             $answers = $stmt -> fetchAll();
             
         ?>
-            <!-- CONTENUE DE LA PAGE -->
+            <!-- CONTENU DE LA PAGE -->
             <section id="sect_tableau">
                 <h1>Paiement des missions</h1>
                 <table>
@@ -88,8 +88,8 @@
 
                                 <input type="hidden" name="montant" value="<?php echo($montantMission) ?>">
 
-                                <input type="submit" value="Rembourser">
-
+                                <input type="submit" value="Rembourser" <?php if($_SESSION["error-distance"] == "erreur"){ echo("disabled");}; ?>>
+                                
                             </form>
 
                             <?php } else { ?>
@@ -149,7 +149,9 @@
 
                 $distance = $stmtKm['dis_km'];
 
+                $_SESSION["error-distance"] = "";
                 if (!isset($distance)){
+                    $_SESSION["error-distance"] = "erreur";
                     return("Distance entre $nomVille1 et <br />$nomVille2 non renseignée");
                 }
              

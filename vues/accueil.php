@@ -22,7 +22,7 @@
     ?>
 
     <div id="bulle-etat-connecte">
-        <p><?php echo("Bonjour ". $_SESSION["prenom"] ." ".$_SESSION["nom"]." ! Vous êtes bien connecté") ?></p>
+        <p><?php echo("Bonjour ". $_SESSION["prenom"] ." ".$_SESSION["nom"]. " ! Vous êtes bien connecté") ?></p>
     </div>
 
     <?php

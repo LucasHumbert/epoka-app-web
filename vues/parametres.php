@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION["numero"])){
-        require_once("../vues/error-not-connected.php");
+        header('location: ../vues/accueil.php');
         die();
     }
 ?>
@@ -37,8 +37,18 @@
 
             $valeurs = $stmt -> fetch();
 
+            if(isset($_SESSION["ajout"])){
+                echo("<div id='bulle-etat-connecte'><p>". $_SESSION["ajout"] ."</p></div>");
+                unset($_SESSION["ajout"]);
+            }
+
+            if(isset($_SESSION["error"])){
+                echo("<div id='bulle-etat-error'><p>". $_SESSION["error"] ."</p></div>");
+                unset($_SESSION["error"]);
+            }
+
         ?>
-            <!-- CONTENUE DE LA PAGE -->
+            <!-- CONTENU DE LA PAGE -->
             <section id="sect_param">
                 <h1>Paramètrage de l'application</h1>
 

@@ -30,19 +30,9 @@ body{
     }
 }
 
-@keyframes opacity{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
 @import './header';
 @import './identification';
 @import './bulle_etat';
 @import './chargement';
 @import './table';
 @import './parametres';
-@import './error_not_connected';

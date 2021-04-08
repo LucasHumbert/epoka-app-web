@@ -18,9 +18,7 @@ header{
     max-height: 70px;
     margin: 0 30px;
 
-    svg{
-        animation: opacity 2s ease;
-    
+    svg{    
         &:hover{
             & #E{
                 animation: basHautBasTitre 1s ease;

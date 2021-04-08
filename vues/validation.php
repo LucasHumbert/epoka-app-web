@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION["numero"])){
-        require_once("../vues/error-not-connected.php");
+        header('location: ../vues/accueil.php');
         die();
     }
 
@@ -46,7 +46,7 @@
             
 
         ?>
-            <!-- CONTENUE DE LA PAGE -->
+            <!-- CONTENU DE LA PAGE -->
             <section id="sect_tableau">
                 <h1>Validation des missions de vos subordonnées</h1>
                 <table>

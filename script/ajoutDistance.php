@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $ville1 = $_GET["ville1"];
     $ville2 = $_GET["ville2"];
     $distance = $_GET["distance"];
@@ -16,16 +18,20 @@
     $stmt->execute ();
 
     if ($ligne = $stmt->fetch()){
-        die("<center> Cette distance a déjà été renseignée <br />
-        <a href='javascript:history.back()' color='#5fa8d3';>Page précédente</a> </center>");
+        $_SESSION["error"] = "Distance déjà renseignée";
     } else {
-        $stmt = $pdo->prepare ("INSERT INTO distance(dis_idVilleDepart, dis_idVilleArrivee, dis_km) VALUES (:ville1, :ville2, :distance)");
-        $stmt->bindParam ("ville1", $ville1,PDO::PARAM_INT);
-        $stmt->bindParam ("ville2", $ville2,PDO::PARAM_INT);
-        $stmt->bindParam ("distance", $distance,PDO::PARAM_INT);
-        $stmt->execute ();
+        if(!is_int($distance)){
+            $_SESSION["error"] = "La distance renseignée n'est pas valable";
+        } else {
+            $stmt = $pdo->prepare ("INSERT INTO distance(dis_idVilleDepart, dis_idVilleArrivee, dis_km) VALUES (:ville1, :ville2, :distance)");
+            $stmt->bindParam ("ville1", $ville1,PDO::PARAM_INT);
+            $stmt->bindParam ("ville2", $ville2,PDO::PARAM_INT);
+            $stmt->bindParam ("distance", $distance,PDO::PARAM_INT);
+            $stmt->execute ();
 
-        header('location: ../vues/parametres.php');
+            $_SESSION["ajout"] = "Ajout de la distance effectué";
+        }
     }
-    
+
+    header('location: ../vues/parametres.php');    
 ?>
