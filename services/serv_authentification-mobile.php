@@ -17,6 +17,7 @@
         
         $output[] = $ligne;
         
+    //si la connexion échoue on renvoie un tableau avec seulement une donnée "erreur" qui sera vérifié dans l'app android
     } else {
         $output[] = array("erreur" => "Erreur connexion");
     }
