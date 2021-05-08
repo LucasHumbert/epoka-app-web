@@ -22,6 +22,7 @@
         /* HEADER */
         require_once("../vues/header.php");
 
+        //si la personne connecté n'est pas autorisé à valider des missions alors on la jette
         if($_SESSION ["peutValider"] != 1){
         ?>
 
@@ -33,17 +34,15 @@
 
         } else {
             $numero = $_SESSION ['numero'];
-            setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']);
+            setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']); //permet d'afficher la date en français
 
+            //reqête qui récupère toutes les infos qu'on va afficher dans le tableau
             $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
             $stmt = $pdo->prepare ("SELECT * FROM salarie, mission, ville WHERE sal_id = mis_idSalarie AND sal_idResponsable = :numero AND mis_idDestination = vil_id ORDER BY mis_validation");
             $stmt->bindParam ("numero", $numero,PDO::PARAM_STR);
             $stmt->execute ();
 
             $answers = $stmt -> fetchAll();
-
-
-            
 
         ?>
             <!-- CONTENU DE LA PAGE -->
@@ -68,7 +67,10 @@
                         <td><?php echo(strftime("%A %e %B %Y", strtotime($answer['mis_dateFin']))) ?></td>
                         <td><?php echo($answer['vil_nom']." (".$answer['vil_cp'].")") ?></td>
                         <td>
-                            <?php if($answer['mis_validation'] == 0){ ?>
+                            <?php 
+                                //si la mission n'est pas encore validé on affiche un bouton qui va appeler le script updateMissionValidation en lui transmettent l'id de la mission
+                                if($answer['mis_validation'] == 0){ 
+                            ?>
 
                             <form action="../script/updateMissionValidation.php" method="GET">
 
@@ -78,13 +80,17 @@
 
                             </form>
 
-                            <?php } else { ?>
+                            <?php
+                                //sinon on affiche juste un texte comme quoi la mission est validée
+                                } else { 
+                            ?>
 
                                 <p class="pValidee">Validée</p>
 
                             <?php 
                                 } 
-                                
+
+                                //et si la mission à  été ensuite payé on l'affiche aussi
                                 if($answer['mis_paiement'] == 1){
                             ?>
 

@@ -1,4 +1,6 @@
 <?php
+        //script exécuté quand on valide une mission
+
         $id = $_GET["id"];
 
         $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");

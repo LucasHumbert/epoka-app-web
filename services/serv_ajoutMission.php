@@ -1,4 +1,6 @@
 <?php
+        //script qui récupere les données passées dans l'url lors de l'ajout de mission de l'app android 
+
         $dateDebut = $_GET['dateDebut'];
         $dateFin = $_GET['dateFin'];
         $destination = $_GET['dest'];

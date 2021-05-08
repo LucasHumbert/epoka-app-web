@@ -1,4 +1,7 @@
 <?php
+        //script exécuté quand on paye une mission
+        //la mission est considérée comme payée et le montant de cette dernière est renseigné dans la base
+
         $id = $_GET["id"];
         $montant = floatval($_GET["montant"]);
         

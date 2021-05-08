@@ -1,9 +1,13 @@
 <?php
+
+    //script qui change les paramètres qui permettront de calculer le montant des missions
+
     session_start();
     
     $prixKm = $_GET['remboursement'];
     $prixJournee = $_GET['indemnite'];
 
+    //vérification des valeurs
     if(!is_numeric($prixKm)){
         $_SESSION["error"] = "Remboursement au Km invalide";
         die(header('location: ../vues/parametres.php'));
@@ -20,7 +24,6 @@
     $stmt->bindParam ("prixJournee", $prixJournee,PDO::PARAM_STR);
     $stmt->execute ();
 
-    session_start();
     $_SESSION["ajout"] = "Modifications effectuées";
     header('location: ../vues/parametres.php');
 ?>

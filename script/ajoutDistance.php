@@ -1,10 +1,14 @@
 <?php
+    //ajout d'une distance entre deux villes sur la page paramètrage
+
     session_start();
 
     $ville1 = $_GET["ville1"];
     $ville2 = $_GET["ville2"];
     $distance = $_GET["distance"];
 
+    //si le code postale de la ville 1 est supérieur à celui de la ville 2 alors on inverse leur valeurs
+    //cela permet de toujours placer en première position la ville ayant le cp le plus petit afin de vérifier plus facilement si une distance est déjà renseignée
     if($ville1 > $ville2){
         $temp = $ville2;
         $ville2 = $ville1;
@@ -17,9 +21,11 @@
     $stmt->bindParam ("ville2", $ville2,PDO::PARAM_INT);
     $stmt->execute ();
 
+    //si distance déjà renseignée
     if ($ligne = $stmt->fetch()){
         $_SESSION["error"] = "Distance déjà renseignée";
     } else {
+        //si la distance n'est pas un nombre
         if(!is_int(intval($distance))){
             $_SESSION["error"] = "La distance renseignée n'est pas valable";
         } else {

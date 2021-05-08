@@ -1,4 +1,6 @@
 <?php
+
+    //script qui permet de s'authentifier sur l'app android
     
     if (!isset($_GET["user"])) die ("#User absent");
     $user = $_GET["user"];

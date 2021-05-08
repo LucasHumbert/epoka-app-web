@@ -12,6 +12,7 @@
     </a>
 
     <?php
+        //si connecté on affiche le header avec les liens
         if(isset($_SESSION["numero"])){
     ?>
 
@@ -35,6 +36,7 @@
     </div>
 
     <?php
+        //et si personne n'est connecté les liens deviennent des div pour ne plus pouvoir accéder aux autres pages
         } else {
     ?>
 

@@ -21,6 +21,7 @@
         /* HEADER */
         require_once("../vues/header.php");
 
+        //si la personne connecté n'est pas autorisé à payer alors on la jette
         if($_SESSION ["peutPayer"] != 1){
         ?>
 
@@ -31,12 +32,14 @@
         <?php
         } else {
 
+            //requête qui récupère les paramètres actuels de la base qu'on affichera dans les inputs
             $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
             $stmt = $pdo->prepare ("SELECT * FROM param");
             $stmt->execute ();
 
             $valeurs = $stmt -> fetch();
 
+            //bulles qui s'affichent si on à ajouté une info ou si il y a une erreur
             if(isset($_SESSION["ajout"])){
                 echo("<div id='bulle-etat-connecte'><p>". $_SESSION["ajout"] ."</p></div>");
                 unset($_SESSION["ajout"]);
@@ -94,6 +97,8 @@
                 <!-- Distance entre villes -->
 
                 <?php
+                    //requête qui récupère les villes de catégorie 1 et 2, qui les tries par catégorie puis par ordre alphabétique
+                    //on les affiches dans les select plus bas
                     $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
                     $stmt = $pdo->prepare ("SELECT * FROM ville WHERE vil_categorie < 3 ORDER BY vil_categorie, vil_nom");
                     $stmt->execute ();
@@ -153,10 +158,11 @@
                     </button>
                 </form>         
 
-                <!-- Distances déjà saisie -->
+                <!-- Affichage des distances déjà saisie -->
                 <h2>Distances entre villes déjà saisies</h2>
 
                 <?php
+                    //requête qui récupère toutes les distances existantes dans la base
                     $pdo = new PDO("mysql:host=127.0.0.1; dbname=epoka;charset=UTF8", "root", "root");
                     $stmt = $pdo->prepare ("SELECT dis_km, a.vil_nom as ville1, b.vil_nom as ville2 FROM distance d JOIN ville a ON d.dis_idVilleDepart =a.vil_id JOIN ville b ON d.dis_idVilleArrivee = b.vil_id ORDER BY ville1");
                     $stmt->execute ();

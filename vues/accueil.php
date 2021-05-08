@@ -18,6 +18,7 @@
 
     <!---- BULLE INFO ---->
     <?php
+        //si le numero est renseigné donc qu'on est connecté on affiche un message d'information
         if(isset($_SESSION["numero"])){
     ?>
 
@@ -27,6 +28,7 @@
 
     <?php
         } else {
+            //si une erreur provenant d'un script est renseignée on l'affiche
             if(isset($_SESSION["error"])){
                 echo("<div id='bulle-etat-error'><p>". $_SESSION["error"] . "</p></div>");
                 session_destroy();
@@ -34,7 +36,11 @@
         }
     ?>
 
-    <?php if(!isset($_SESSION["numero"])){ ?>
+
+    <?php 
+        //si personne n'est connecté on affiche le formulaire de connexion
+        if(!isset($_SESSION["numero"])){ 
+    ?>
 
     <!---- IDENTIFICATION ---->
     <section id="sec_identification">

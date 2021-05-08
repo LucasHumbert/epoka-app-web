@@ -1,6 +1,7 @@
 <?php
     session_start();    
     
+    //vérification du numéro d'utilisateur (erreur si nul ou pas un nombre)
     if (empty($_POST["numero"])){
         $_SESSION["error"] = "Numéro absent";
         die(header('location: ../index.php'));
@@ -12,6 +13,7 @@
     }
     $numero = $_POST["numero"];
 
+    //vérification du mot de passe (erreur si nul)
     if (empty($_POST["mdp"])){
         $_SESSION["error"] = "Mdp absent";
         die(header('location: ../index.php'));
@@ -26,10 +28,12 @@
 
     if ($ligne = $stmt->fetch()){
         
+        //variables de profil
         $_SESSION ["numero"] = $numero;
         $_SESSION ["nom"] = $ligne["sal_nom"];
         $_SESSION ["prenom"] = $ligne["sal_prenom"];
 
+        //variables d'autorisations qui permettent de vérifier si l'utilisateur connecté peut accéder à certaines pages
         $_SESSION ["peutValider"] = $ligne["sal_peutValider"];
         $_SESSION ["peutPayer"] = $ligne["sal_peutPayer"];
 
