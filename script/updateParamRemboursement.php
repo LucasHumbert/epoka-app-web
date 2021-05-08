@@ -9,7 +9,7 @@
         die(header('location: ../vues/parametres.php'));
     }
 
-    if(!is_int($prixJournee)){
+    if(!is_int(intval($prixJournee))){
         $_SESSION["error"] = "Indemnité d'hébergement invalide";
         die(header('location: ../vues/parametres.php'));
     }

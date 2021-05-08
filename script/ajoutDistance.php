@@ -20,7 +20,7 @@
     if ($ligne = $stmt->fetch()){
         $_SESSION["error"] = "Distance déjà renseignée";
     } else {
-        if(!is_int($distance)){
+        if(!is_int(intval($distance))){
             $_SESSION["error"] = "La distance renseignée n'est pas valable";
         } else {
             $stmt = $pdo->prepare ("INSERT INTO distance(dis_idVilleDepart, dis_idVilleArrivee, dis_km) VALUES (:ville1, :ville2, :distance)");
